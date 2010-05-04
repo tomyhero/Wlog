@@ -9,5 +9,10 @@
 <div id="container">
 <div id="header">
 <h1>Lazy Programmer's Blog</h1>
+<ul id="navi">
+    <li><a href="">Blog</a></li>
+    <li><a href="">Profile</a></li>
+</ul>
+<div class="fixed"></div>
 </div>
 <div id="content">
