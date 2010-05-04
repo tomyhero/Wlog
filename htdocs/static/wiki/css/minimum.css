@@ -1,0 +1,131 @@
+/* REQUIRE CSS */
+/* Function::Fukidashi */
+div {
+    /* let IE6 to display balloon well */
+    zoom: 1;
+}
+
+div.user-area div.BOX-balloon {
+    margin-bottom: 5px;
+}
+ /* display an image on the left */
+div.user-area div.BOX-balloon-left div.BOX-balloon-image {
+    float: left;
+}
+
+div.user-area div.BOX-balloon-image img {
+    width: 60px;
+    height: 60px;
+    border : 0px;
+}
+
+div.user-area div.BOX-balloon-text {
+    line-height: 1.3;
+}
+
+div.user-area div.BOX-balloon-left div.BOX-balloon-text {
+    margin-left: 65px;
+}
+
+div.user-area div.BOX-balloon-left div.balloon-top {
+    padding-left: 14px;
+    background: url(../images/function/fukidashi/left_top_l.gif) no-repeat scroll 0 0;
+}
+
+div.user-area div.BOX-balloon-left div.balloon-top-inner {
+    height: 10px;
+    background: url(../images/function/fukidashi/left_top_r.gif) no-repeat scroll 100% 0;
+}
+
+div.user-area div.BOX-balloon-left div.balloon-body {
+    background: url(../images/function/fukidashi/left_body_l.gif) repeat-y scroll 0 0;
+}
+
+div.user-area div.BOX-balloon-left div.balloon-body-inner {
+    padding-left: 11px;
+    background: url(../images/function/fukidashi/left.gif) no-repeat scroll 0 0;
+}
+
+div.user-area div.BOX-balloon-left div.balloon-body-inner2 {
+    padding: 0 10px 5px;
+    border-right: 1px solid #a2a2a2;
+    background-color: #fff;
+}
+
+div.user-area div.BOX-balloon-left div.balloon-bottom {
+    padding-left: 14px;
+    background: url(../images/function/fukidashi/left_bottom_l.gif) no-repeat scroll 0 0;
+}
+
+div.user-area div.BOX-balloon-left div.balloon-bottom-inner {
+    height: 10px;
+    background: url(../images/function/fukidashi/left_bottom_r.gif) no-repeat scroll 100% 0;
+}
+
+ /* display an image on the right */
+div.user-area div.BOX-balloon-right div.BOX-balloon-image {
+    float: right;
+}
+
+div.user-area div.BOX-balloon-right div.BOX-balloon-text {
+    margin-right: 65px;
+}
+
+div.user-area div.BOX-balloon-right div.balloon-top  {
+    padding-left: 4px;
+    background: url(../images/function/fukidashi/right_top_l.gif) no-repeat scroll 0 0;
+}
+
+div.user-area div.BOX-balloon-right div.balloon-top-inner {
+    height: 10px;
+    background: url(../images/function/fukidashi/right_top_r.gif) no-repeat scroll 100% 0;
+}
+
+div.user-area div.BOX-balloon-right div.balloon-body {
+    background: url(../images/function/fukidashi/right_body_r.gif) repeat-y scroll 100% 0;
+}
+
+div.user-area div.BOX-balloon-right div.balloon-body-inner {
+    padding-right: 11px;
+    background: url(../images/function/fukidashi/right.gif) no-repeat scroll 100% 0;
+}
+
+div.user-area div.BOX-balloon-right div.balloon-body-inner2 {
+    padding: 0 10px 5px;
+    border-left: 1px solid #a2a2a2;
+    background-color: #fdffe0;
+}
+
+div.user-area div.BOX-balloon-right div.balloon-bottom {
+    padding-left: 4px;
+    background: url(../images/function/fukidashi/right_bottom_l.gif) no-repeat scroll 0 0;
+}
+
+div.user-area div.BOX-balloon-right div.balloon-bottom-inner {
+    height: 10px;
+    background: url(../images/function/fukidashi/right_bottom_r.gif) no-repeat scroll 100% 0;
+}
+
+div.user-area div.BOX-balloon-image {
+    widht: 60px;
+    height: 60px;
+}
+/* Block::Toggle */
+div.user-area div.toggle-display {
+    margin-bottom: 5px;
+    padding-left: 22px;
+}
+
+div.user-area div.toggle-title a {
+    float: left;
+    display: block;
+    height: 17px;
+}
+
+div.user-area a.toggle-link-open {
+    background: url(../images/block/toggle/icon_open.gif) no-repeat;
+}
+
+div.user-area a.toggle-link-close {
+    background: url(../images/block/toggle/icon_close.gif) no-repeat;
+}
