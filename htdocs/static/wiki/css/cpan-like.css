@@ -172,35 +172,42 @@ div.user-area pre.AAS {
 }
 
 /* Block::DL */
-div.user-area dl dt {
-    margin-top: 1em;
-    font-weight: bold;
+div.user-area dl {
+padding: 0.5em 20px;
+border: 1px solid #eee;
+border-radius: 6px;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
 }
 
-div.user-area dl dd {
-    margin-left: 10px;
+div.user-area dt {
+margin: 0.7em 0;
+padding-bottom: 0.3em;
+border-bottom: 1px dotted #ccc;
+font-weight: bold;
+color: #0066CC;
+}
+
+div.user-area dd {
+margin: 0.5em 0;
 }
 
 /* Block::H3, Block::H4, Block::H5 */
-div.user-area h3,
-div.user-area h4,
-div.user-area h5 {
-    margin: 12px 0px;
-    color: #069;
-}
 
 div.user-area h3 {
-    font-size: large;
+border-bottom:1px dotted #CCCCCC;
+border-left:5px solid #666666;
+margin-bottom:0;
+padding:0.2em 13px 0.4em;
 }
 
 div.user-area h4 {
-    font-size: medium;
+border-bottom:4px solid #EEEEEE;
+font-size:116%;
+margin-top:2em;
+padding-bottom:0.4em;
 }
 
-div.user-area h5 {
-    font-size: medium;
-    font-style: italic;
-}
 
 /* Block::Line */
 div.user-area hr {
@@ -226,40 +233,50 @@ div.user-area ol.list-3 {
 
 /* Block::Table */
 div.user-area table {
-    margin: 10px 0px;
-    border-collapse: collapse;
-    border-spacing: 0;
-    /* In some browsers, table font-size is not inherited unless otherwise speified to. */
-    font-size: inherit;
+background-color:#FFFFFF;
+border-color:#DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+border-style:solid;
+border-width:1px;
+margin:1em 0;
+font-size:inherit;
 }
 
 div.user-area table tr th {
-    background-color: #069;
-    color: #fff;
+background-color:#F5F5F5;
+border-right:1px solid #DDDDDD;
+color:#333333;
 }
 
 div.user-area table tr th,
 div.user-area table tr td {
-    padding: 5px;
-    border: 1px solid #069;
+border-collapse:separate;
+border-spacing:1px;
+padding:0.3em 10px;
 }
 
+div.user-area table tr td {
+border-right:1px solid #EEEEEE;
+border-top:1px solid #EEEEEE;
+}
 
 div.user-area p {
-    margin: 0px 0px 10px 22px;
+    line-height:1.7;
+    margin: 5px;
 }
 
 /* Block::Ul */
+div.user-area ul {
+margin:0;
+}
 div.user-area ul.list-1 li,
 div.user-area ul.list-2 li,
 div.user-area ul.list-3 li {
-    margin-bottom: 5px;
-    padding-left: 20px;
+margin:0;
+padding:0;
 }
 
 div.user-area ul.list-1 {
     list-style-type: disc;
-    margin: 10px 0;
 }
 
 div.user-area ul.list-2 {
