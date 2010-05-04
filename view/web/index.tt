@@ -1,6 +1,10 @@
 [% INCLUDE header.inc %]
-<div id="article">
+<div id="main">
 <h2>とても良い生地ノタイトルですこれは。</h2>
 [% article %]
 </div>
+<div id="sidebar">
+SIDE
+</div>
+<div class="fixed"></div>
 [% INCLUDE footer.inc %]

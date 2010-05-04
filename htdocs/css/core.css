@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/* Yahoo fonts.css 2.7.0
+http://developer.yahoo.net/yui/license.txt
+- Font size Adjustment.
+ http://developer.yahoo.com/yui/examples/fonts/fonts-size_source.html
+*/ body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
+
+body {
+	color: #222;
+	background-color: #666;
+}
+
+div#container {
+    margin:0 auto;
+}
+div#content {
+	padding-bottom: 1px;
+	border-top: 1px solid #eee;
+	background-color: #fff;
+    min-height:400px;
+}
+
+div#header {
+	padding: 1px 0;
+	background-color: #fff;
+}
+
+div#main {
+    float : left;
+}
+div#sidebar {
+    float : right;
+    font-size :95%;
+    line-height: 145%;
+    overflow: hidden;
+    padding-top: 8px;
+    width: 300px;
+}
+
+.fixed, .clear {
+    clear: both ;
+}
+
+/* 
+
+FOOTER
+
+*/
+
+div#footer {
+	padding: 1px 0 1em;
+}
+
+div#footer a {
+	color: #aaa;
+	text-decoration: none;
+}
+div#footer a:hover {
+	color: #fff;
+}
+div#footer ul {
+	margin: 0.7em 0;
+	text-align: right;
+	color: #ddd;
+	font-size: 85%;
+}
+div#footer ul li {
+	margin-left: 5px;
+	display: inline;
+}
+div#footer address {
+	text-align: right;
+	font-style: normal;
+	color: #eee;
+}
