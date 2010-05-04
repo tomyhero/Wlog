@@ -122,6 +122,13 @@ p.updated_at {
 }
 
 div.article {
+    padding-bottom : 50px;
+}
+div.information-box {
+background:none repeat scroll 0 0 #2C2C2C;
+border:1px solid #646464;
+padding:10px;
+margin:5px;
 }
 h2 {
 background-color:#F5F5F5;
@@ -136,4 +143,26 @@ padding:15px 30px;
 
 div.user-area {
     margin: 0.7em 1.2em; 
+}
+
+ul#page-category {
+font-size:80%;
+list-style:none outside none;
+margin:0 0 5px;
+padding:0;
+color:#AEBEE6;
+font-family:Verdana,sans-serif;
+font-size:82%;
+line-height:1.35;
+}
+ul#page-category li {
+display:inline;
+padding:5px 0 4px 5px;
+}
+ul#page-category li.title {
+background:url("/image/icon/category.gif") no-repeat scroll 0 -72px transparent;
+padding-left:18px;
+}
+a:link {
+color:#9BBCFF;
 }

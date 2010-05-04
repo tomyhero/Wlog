@@ -5,6 +5,14 @@
 <h2>とても良い生地ノタイトルですこれは。</h2>
 <p class="updated_at">最終更新日 : 2010-12-13 12:12:12</p>
 [% article %]
+
+<div class="information-box">
+    <ul id="page-category">
+        <li class="title">カテゴリ:</li>
+        <li class="parent"><a href="#">ゲーム</a></li>
+    </ul>
+</div>
+
 <div class="fixed"></div>
 </div>
 <div class="article">
