@@ -1,0 +1,18 @@
+#!/usr/bin/perl -w
+use warnings;
+use strict;
+use FindBin;
+use Path::Class;
+use lib Path::Class::Dir->new($FindBin::Bin, '..', 'lib')->stringify;
+
+my $type = shift @ARGV;
+my $helper = "Polocky::Setup::Helper::$type";
+eval "use $helper";
+if($@){die $@ };
+$helper->new(  options => { } , helper => { target => $ARGV[0] , appprefix => lc $ARGV[0] } )->run;
+
+=head1 NAME
+
+./bin/-helper App  Web
+
+=cut
