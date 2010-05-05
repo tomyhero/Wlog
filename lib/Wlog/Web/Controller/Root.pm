@@ -25,10 +25,10 @@ sub index : Path : Args(0) {
 
 sub category : LocalRegex('([a-zA-Z0-9_-]+)') {
     my ( $self, $c ) = @_;
-    # for testing
-
-    $c->stash->{template} = 'index.tt';
-    $c->detach('index');
+    my $key = $c->req->captures->[0];
+    my $category_obj = Wlog::Data::Category->single( { category_key => $key } );
+    $c->stash->{category_obj} = $category_obj;
+    $c->stash->{article} = $category_obj->article ;
 }
 
 sub end  :ActionClass('RenderView') {}

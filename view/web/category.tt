@@ -1,0 +1,32 @@
+[% INCLUDE header.inc %]
+<div id="main">
+
+<div class="article">
+<h2>[% category_obj.name | html %]</h2>
+<p class="updated_at">最終更新日 : [% category_obj.updated_at %]</p>
+[% article %]
+<div class="fixed"></div>
+</div>
+</div>
+
+<div id="sidebar">
+
+<div class="side-box">
+<div class="box-inner">
+<div class="title"><h2>Recent</h2></div>
+<div class="body">
+<div class="inner">
+<ul>
+    <li><a href="">ほげほげ</a></li>
+    <li><a href="">ほげほげ</a></li>
+    <li><a href="">ほげほげ</a></li>
+    <li><a href="">ほげほげ</a></li>
+</ul>
+</div><!-- /inner -->
+</div><!-- /.body -->
+</div><!-- /.box-inner -->
+</div><!-- /side-box -->
+</div>
+
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

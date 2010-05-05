@@ -8,11 +8,11 @@
 <div id="wrap">
 <div id="container">
 <div id="header">
-<h1>Lazy Programmer's Wlog</h1>
+<h1>Lazy Programmer's Wlog[% IF category_obj %] / [% category_obj.name | html %] [% END %]</h1>
 <ul id="navi">
     <li><a href="/">Blog</a></li>
-    [% FOR category_obj IN category_objs %]
-    <li><a href="/[% category_obj.key %]/">[% category_obj.name | html %]</a></li>
+    [% FOR obj IN category_objs %]
+    <li><a href="/[% obj.key %]/">[% obj.name | html %]</a></li>
     [% END %]
 </ul>
 <div class="fixed"></div>
