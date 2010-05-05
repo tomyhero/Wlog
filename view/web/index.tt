@@ -1,24 +1,21 @@
 [% INCLUDE header.inc %]
 <div id="main">
 
+[% FOREACH article_obj IN article_objs %]
 <div class="article">
-<h2>とても良い生地ノタイトルですこれは。</h2>
-<p class="updated_at">最終更新日 : 2010-12-13 12:12:12</p>
-[% article %]
-
+<h2>[% article_obj.name | html %]</h2>
+<p class="updated_at">Bloged at : [% article_obj.bloged_at %]</p>
+[% article_obj.article %]
 <div class="information-box">
     <ul id="page-category">
         <li class="title">カテゴリ:</li>
-        <li class="parent"><a href="#">ゲーム</a></li>
+        <li class="parent"><a href="/[% article_obj.category_obj.key %]/">[% article_obj.category_obj.name | html %]</a></li>
     </ul>
 </div>
 <div class="fixed"></div>
 </div>
-<div class="article">
-<h2>とても良い生地ノタイトルですこれは2</h2>
-[% article %]
-<div class="fixed"></div>
-</div>
+[% END %]
+
 </div>
 
 <div id="sidebar">

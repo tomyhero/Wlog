@@ -2,9 +2,9 @@
 <div id="main">
 
 <div class="article">
-<h2>[% category_obj.name | html %]</h2>
-<p class="updated_at">最終更新日 : [% category_obj.updated_at %]</p>
-[% category_obj.article %]
+<h2>[% article_obj.name | html %]</h2>
+<p class="updated_at">最終更新日 : [% article_obj.updated_at %]</p>
+[% article_obj.article %]
 <div class="fixed"></div>
 </div>
 </div>
