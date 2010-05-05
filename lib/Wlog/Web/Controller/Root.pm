@@ -6,6 +6,13 @@ __PACKAGE__->namespace('');
 use Wlog::Text;
 use Polocky::Utils;
 use IO::All;
+use Wlog::Data::Category;
+
+sub auto : Private {
+    my ( $self, $c ) = @_;
+    my @category_objs = Wlog::Data::Category->search();
+    $c->stash->{category_objs} = \@category_objs;
+}
 
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;

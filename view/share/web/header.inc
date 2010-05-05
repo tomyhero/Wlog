@@ -10,8 +10,10 @@
 <div id="header">
 <h1>Lazy Programmer's Blog</h1>
 <ul id="navi">
-    <li><a href="">Blog</a></li>
-    <li><a href="">Profile</a></li>
+    <li><a href="/">Blog</a></li>
+    [% FOR category_obj IN category_objs %]
+    <li><a href="/[% category_obj.key %]/">[% category_obj.name | html %]</a></li>
+    [% END %]
 </ul>
 <div class="fixed"></div>
 </div>
