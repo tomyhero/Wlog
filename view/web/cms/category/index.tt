@@ -1,0 +1,35 @@
+[% INCLUDE header.inc mode='cms' %]
+<div id="main">
+
+<p>CMS &gt; カテゴリ管理</p>
+
+<a href="/cms/category/add/">カテゴリ追加</a>
+<table>
+<thead>
+<tr>
+    <th>キー</th>
+    <th>表記名</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+</tr>
+</thead>
+[% FOREACH category_obj IN category_objs %]
+<tr>
+    <td>[% category_obj.key %]</td>
+    <td>[% category_obj.name | html %]</td>
+    <td><a href="/cms/category/[% category_obj.id %]/edit/">編集</a></td>
+    <td><a href="/cms/category/[% category_obj.id %]/body/">トップ編集</a></td>
+    <td><a href="/cms/sidebar/view?category_id=[% category_obj.id %]">サイドメニュー設定</a></td>
+</tr>
+[% END %]
+</table>
+
+<div class="fixed"></div>
+</div>
+<div id="sidebar">
+
+<div class="fixed"></div>
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

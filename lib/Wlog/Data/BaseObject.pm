@@ -90,4 +90,12 @@ sub count {
     $self->driver->select_one( $stmt->as_sql, $stmt->{bind} );
 }
 
+sub update_from_v {
+    my( $self, $v ) = @_;
+    for my $col ( keys %$v ) {
+        $self->$col( $v->{$col} );
+    }
+    1;
+}
+
 1;

@@ -2,6 +2,7 @@ create table category(
     category_id int(10) unsigned NOT NULL auto_increment,
     category_key varchar(255) NOT NULL,
     category_name varchar(255) NOT NULL,
+    sort int(10) unsigned NOT NULL,
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (category_id),

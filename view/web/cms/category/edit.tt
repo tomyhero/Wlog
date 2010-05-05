@@ -1,0 +1,36 @@
+[% INCLUDE header.inc mode='cms' %]
+<div id="main">
+
+<p>CMS &gt; カテゴリ管理 &gt; [% entry_obj.name | html %]編集 </p>
+
+[% INCLUDE fvl.inc %]
+
+<form method="post" aciton="/cms/category/[% entry_obj.id %]/edit/">
+<table>
+<tr>
+    <th>キー</th>
+    <td><input type="text" name="category_key" /></td>
+</tr>
+<tr>
+    <th>名前</th>
+    <td><input type="text" name="category_name" /></td>
+</tr>
+<tr>
+    <th>順番</th>
+    <td><input type="text" name="sort" /></td>
+</tr>
+<tr>
+    <td colspan="2"><input type="submit" /></td>
+</tr>
+</table>
+</form>
+
+<div class="fixed"></div>
+</div>
+
+<div id="sidebar">
+
+<div class="fixed"></div>
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

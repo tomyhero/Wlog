@@ -1,0 +1,20 @@
+rules :
+    - String
+    - Number 
+lang : ja
+setting :
+    strict :
+        category_key :
+            rule :
+                - String#ascii :
+                - String#length :
+                    min : 1
+                    max : 10
+        category_name :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 10
+        sort :
+            rule :
+                - Number#uint 

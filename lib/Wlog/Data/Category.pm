@@ -6,7 +6,7 @@ use Wlog::ObjectDriver;
 use Wlog::Data::CategoryBody;
 
 __PACKAGE__->install_properties({
-        columns     => [ qw/category_id category_key category_name created_at updated_at/ ],
+        columns     => [ qw/category_id category_key category_name sort created_at updated_at/ ],
         datasource  => 'category',
         primary_key => 'category_id',
         driver      => Wlog::ObjectDriver->driver,

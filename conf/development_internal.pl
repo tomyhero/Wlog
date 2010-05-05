@@ -15,6 +15,12 @@
                 'web' => {
                     'plugins' => [
                         'Polocky::WAF::CatalystLike::Plugin::ShowDispatcher',
+                        'Wlog::WAF::Plugin::FillInForm',
+                        {
+                            'Wlog::WAF::Plugin::FVL' => {
+                                yaml_file => '__path_to(conf/dfv.yaml)__',
+                            },          
+                        },
                     ],
                     'middlewares' => [
                     {

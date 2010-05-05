@@ -13,7 +13,8 @@ use Wlog::Constants qw(:common);
 
 sub auto : Private {
     my ( $self, $c ) = @_;
-    my @category_objs = Wlog::Data::Category->search();
+    # XXX skip this code at /cms/
+    my @category_objs = Wlog::Data::Category->search( {} ,{ sort => 'sort' , direction => 'descend' } );
     $c->stash->{category_objs} = \@category_objs;
 }
 
@@ -44,7 +45,7 @@ sub tag : LocalRegex('tag/(.+)') {
     $c->stash->{article_objs} = $article_objs;
 
 }
-sub category : LocalRegex('([a-zA-Z0-9_-]+)$') {
+sub category : LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)$') {
     my ( $self, $c ) = @_;
     $c->forward('preapre_category');
 }
@@ -66,12 +67,16 @@ sub preapre_category : Private {
     $c->stash->{article_objs} = \@article_objs;
 }
 
-sub article :  LocalRegex('([a-zA-Z0-9_-]+)/(.+)') {
+sub article :  LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)/(.+)') {
     my ( $self, $c ) = @_;
     $c->forward('preapre_category');
     my $name =$c->req->captures->[1];
     my $article_obj = Wlog::Data::Article->single( { article_name => $name } );
     $c->stash->{article_obj} = $article_obj;
+}
+
+sub error : Private {
+
 }
 
 sub end  :ActionClass('RenderView') {}
