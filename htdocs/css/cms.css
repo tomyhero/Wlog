@@ -1,198 +1,41 @@
 @charset "UTF-8";
-html,body,div,h1,h2,h3,h4,h5,h6,p,blockquote,pre,table,th,tr,td,ul,ol,li,dl,dt,dd,form,fieldset,legend,hr,span,a,img,strong,em,ins,del,cite,abbr,acronym,sup,sub,dfn,code,var,samp,kbd {
+
+/*
+ 
+ NAVI
+
+*/
+
+ul#navi {
+    margin: 0 0 0 0;
+    padding: 0;
+    line-height: 1;
+    list-style-type: none;
+}
+
+ul#navi li {
     margin: 0;
     padding: 0;
+    float: left;
+    /*
+    width: 110px;
+    */
+    text-align: center;
 }
 
-* {
-    word-break:break-all;
-}
-
-address,caption,cite,code,dfn,em,strong,th,var,h1,h2,h3,h4,h5,h6 {
-    font-style: normal;
-    font-weight: normal;
-}
-
-div,dl,dt,dd,table,textarea,h1,h2,h3,h4,h5,h6 {
-    font-size: 100%;
-}
-
-h1,h2,h3,h4,h5,h6,div {
-    zoom:1;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-fieldset,img {
-    border:0;
-}
-
-img {
-    vertical-align: bottom;
-}
-
-ul {
-    list-style: none;
-}
-
-q:before,q:after {
-    content:'';
-}
-
-strong {
-    font-weight:bold;
-}
-
-/* common-style
------------------------------------------------------------------------------------------------------------------------- */
-body {
-    font-family:'Hiragino Kaku Gothic Pro',Helvetica,sans-serif;
-    font-size:82%;
-}
-
-
-
-/* clear
------------------------------------------------------------------------------------------------------------------------- */
-/* ie ?*/
-* html .clearfix {
-    zoom:1;
-}
-*+html .clearfix {
-    zoom:1;
-}
-
-/* modern brow */
-.clearfix:after {
-    content: ".";
+ul#navi li a {
+    border-right: 1px solid #fff;
+    border-top: 1px solid #fff;
+    padding: 9px 20px;
     display: block;
-    clear: both;
-    height: 0;
-    visibility: hidden;
+    position: relative; /* for IE6 */
+    color: #000;
+    background-color: #ccc;
+    text-decoration: none;
 }
 
-/* MacIE onry ?*//*/
-.clearfix {
-    display: inline-table;
-}/* end */
-body{
-    background-color : #fff;
-}
-#header {
-    background-color : #000;
-    color : #fff;
-}
-#menu {
-    padding : 3px;
-    background-color : lightblue;
-    color : ;
-}
-#menu a {
-    color : black;
-}
-#footer {
-    background-color : #000;
-    color : #fff;
-    text-align : center;
-}
-#footer address { }
-
-#content {
-    padding-bottom : 20px;
-}
-#content h3 {
-    padding : 3px;
-    background-color : gray;
-    color : lightblue;
-}
-#sub-menu {
-    background-color : #fff;
-}
-#sub-menu a {
-    color : #000;
-}
-#error {
-    background-color : black;
-    color : red;
-}
-table.form {
-        color: #666666;
-        margin-bottom: 30px;
-        border: 1px solid #CCCCCC;
-        border-collapse: separate;
-        border-spacing: 1px;
-}
-table.form th {
-        padding: 5px;
-        border-right: 1px solid #CCCCCC;
-        border-bottom: 1px solid #CCCCCC;
-        background-color: #E1E2E6;
-}
-table.form td {
-        padding: 5px;
-        text-align : left;
-        border-right: 1px solid #CCCCCC;
-        border-bottom: 1px solid #CCCCCC;
-        background-color: #EFF2F3;
-}
-
-table.listing {
- clear: both;
- border-bottom: 1px solid #d7d7d7;
- border-collapse: collapse;
- border-spacing: 0;
- margin-top: 1em;
-}
-table.listing th { text-align: left; padding: 0 1em .1em 0; font-size: 12px }
-table.listing thead { background: #f7f7f0 }
-table.listing thead th {
- border: 1px solid #d7d7d7;
- border-bottom-color: #999;
- font-size: 11px;
- font-weight: bold;
- padding: 2px .5em;
- vertical-align: bottom;
-}
-table.listing thead th :link:hover, table.listing thead th :visited:hover {
- background-color: transparent;
-}
-table.listing thead th a { border: none; padding-right: 12px }
-table.listing th.asc a, table.listing th.desc a { font-weight: bold }
-table.listing th.asc a, table.listing th.desc a {
- background-position: 100% 50%;
- background-repeat: no-repeat;
-}
-table.listing tbody td, table.listing tbody th {
- border: 1px dotted #ddd;
- padding: .3em .5em;
- vertical-align: top;
-}
-
-table.listing tbody td {
- text-align : right;
-}
-
-table.listing tbody td a:hover, table.listing tbody th a:hover {
- background-color: transparent;
-}
-table.listing tbody tr { border-top: 1px solid #ddd }
-table.listing tbody tr.even { background-color: #fcfcfc }
-table.listing tbody tr:hover { background: #eed !important }
-table.listing tbody tr.disable { background-color: gray }
-
-table.none {
-    border-width:0xp;
-    border-style:none;
-    width:100%;
-}
-
-table.none tbody tr { 
-    border-width:0xp;
-    border-style:none;
-}
-table.none tbody tr td { 
-    border-width:0xp;
-    border-style:none;
+ul#navi li a:hover,
+ul#navi li.current a {
+    color: #000;
+    background-color: #fff;
 }
