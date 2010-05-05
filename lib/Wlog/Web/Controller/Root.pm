@@ -23,6 +23,14 @@ sub index : Path : Args(0) {
     $c->stash->{article} = $article;
 }
 
+sub category : LocalRegex('([a-zA-Z0-9_-]+)') {
+    my ( $self, $c ) = @_;
+    # for testing
+
+    $c->stash->{template} = 'index.tt';
+    $c->detach('index');
+}
+
 sub end  :ActionClass('RenderView') {}
 
 __POLOCKY__;

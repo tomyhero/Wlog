@@ -8,7 +8,7 @@
 <div id="wrap">
 <div id="container">
 <div id="header">
-<h1>Lazy Programmer's Blog</h1>
+<h1>Lazy Programmer's Wlog</h1>
 <ul id="navi">
     <li><a href="/">Blog</a></li>
     [% FOR category_obj IN category_objs %]
