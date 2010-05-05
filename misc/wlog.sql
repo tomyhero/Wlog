@@ -54,3 +54,15 @@ create table article_tag (
     UNIQUE KEY(article_id,tag_id)
 );
 
+create table sidebar (
+    sidebar_id int(10) unsigned NOT NULL auto_increment,
+    article_id int(10) unsigned NOT NULL,
+    sidebar_plugin varchar(255) NOT NULL,
+    sidebar_name varchar(255) NOT NULL, 
+    sort int(10) unsigned NOT NULL,
+    pson TEXT NOT NULL,
+    created_at datetime NOT NULL default '0000-00-00 00:00:00',
+    updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+    PRIMARY KEY (sidebar_id)
+);
+
