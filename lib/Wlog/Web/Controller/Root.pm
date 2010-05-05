@@ -8,6 +8,7 @@ use Polocky::Utils;
 use IO::All;
 use Wlog::Data::Category;
 use Wlog::Data::Article;
+use Wlog::Data::ArticleTag;
 use Wlog::Constants qw(:common);
 
 sub auto : Private {
@@ -31,6 +32,18 @@ sub index : Path : Args(0) {
     $c->stash->{article_objs} = \@article_objs;
 }
 
+sub tag : LocalRegex('tag/(.+)') {
+    my ( $self, $c ) = @_;
+    my $name = $c->req->captures->[0];
+    my $tag_obj = Wlog::Data::Tag->single({tag_name => $name });
+    $c->stash->{tag_obj} = $tag_obj;
+
+    my @article_tag_objs = Wlog::Data::ArticleTag->search({ tag_id => $tag_obj->id });
+    my @article_ids = map { $_->id } @article_tag_objs;
+    my $article_objs = Wlog::Data::Article->lookup_multi(\@article_ids );
+    $c->stash->{article_objs} = $article_objs;
+
+}
 sub category : LocalRegex('([a-zA-Z0-9_-]+)$') {
     my ( $self, $c ) = @_;
     $c->forward('preapre_category');

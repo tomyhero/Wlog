@@ -6,12 +6,10 @@
 <h2>[% article_obj.name | html %]</h2>
 <p class="updated_at">Bloged at : [% article_obj.bloged_at %]</p>
 [% article_obj.article %]
-<div class="information-box">
-    <ul id="page-category">
-        <li class="title">カテゴリ:</li>
-        <li class="parent"><a href="/[% article_obj.category_obj.key %]/">[% article_obj.category_obj.name | html %]</a></li>
-    </ul>
-</div>
+
+
+[% INCLUDE information.inc %]
+
 <div class="fixed"></div>
 </div>
 [% END %]
@@ -19,7 +17,6 @@
 </div>
 
 <div id="sidebar">
-
 <div class="side-box">
 <div class="box-inner">
 <div class="title"><h2>About</h2></div>

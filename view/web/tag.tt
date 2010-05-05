@@ -1,0 +1,23 @@
+[% INCLUDE header.inc %]
+<div id="main">
+<div class="article">
+<h2>[% tag_obj.name | html %]</h2>
+
+
+
+<ul>
+[% FOREACH obj IN article_objs %]
+<li>[% obj.updated_at %] <a href="/[% obj.category_obj.name | uri %]/[% obj.name | uri %]">[% obj.name | html %]</a> ([% obj.category_obj.name %])</li>
+[% END %]
+</ul>
+
+<div class="fixed"></div>
+</div>
+
+<div class="fixed"></div>
+</div>
+<div id="sidebar">
+
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]
