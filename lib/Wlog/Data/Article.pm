@@ -4,6 +4,8 @@ use warnings;
 use base qw(Wlog::Data::BaseObject );
 use Wlog::ObjectDriver;
 use Wlog::Data::ArticleBody;
+use Wlog::Data::ArticleTag;
+
 
 __PACKAGE__->install_properties({
         columns     => [ qw/article_id category_id article_name on_blog bloged_at created_at updated_at/ ],
@@ -38,6 +40,12 @@ sub article {
     else {
         return '';
     }
+}
+
+sub tag_objs {
+    my $self = shift;
+    my @article_tag_objs = Wlog::Data::ArticleTag->search( { article_id => $self->id } );
+    return \@article_tag_objs;
 }
 
 1;

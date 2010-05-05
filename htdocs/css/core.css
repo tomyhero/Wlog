@@ -199,6 +199,30 @@ ul#page-category li.title {
 background:url("/image/icon/category.gif") no-repeat scroll 0 -72px transparent;
 padding-left:18px;
 }
+
+ul#page-tags {
+font-size:80%;
+list-style:none outside none;
+margin:0 0 5px;
+padding:0;
+color:#AEBEE6;
+font-family:Verdana,sans-serif;
+font-size:82%;
+line-height:1.35;
+}
+ul#page-tags li {
+    display:inline;
+    padding:4px 0 4px 5px;
+}
+ul#page-tags li.title {
+    line-height:20px;
+    height:20px;
+    padding-left:18px;
+    background:url(/image/icon/tags.gif) no-repeat 0 -98px;
+}
+
+
+
 a:link {
 color:#9BBCFF;
 }
