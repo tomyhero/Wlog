@@ -32,4 +32,23 @@ sub do_edit : Private {
 
 }
 
+sub add : Local {
+    my ( $self, $c ) = @_;
+    if( $c->req->method eq 'POST' ) {
+        $c->forward('do_add');
+    }
+}
+
+sub do_add : Private {
+    my ( $self, $c ) = @_;
+    my $form = $c->form( $self->profile_for_edit );
+    if( $form->has_error ) {
+        return ;
+    }
+    my $v = $form->valid;
+    my $entry_obj = $self->entry_obj->new( %$v );
+    $entry_obj->save();
+    $c->redirect('/'. $self->path_part );
+}
+
 __POLOCKY__;

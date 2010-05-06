@@ -5,6 +5,7 @@ use warnings;
 use base qw( Data::ObjectDriver::BaseObject Class::Data::Inheritable);
 use Sub::Install;
 use Data::ObjectDriver::SQL;
+use Wlog::DateTime;
 
 __PACKAGE__->add_trigger(
     pre_search => sub {
@@ -16,7 +17,40 @@ __PACKAGE__->add_trigger(
         }
     },
 );
+__PACKAGE__->add_trigger(
+    pre_insert => sub {
+        my ( $obj, $orig ) = @_;
+        my $now = Wlog::DateTime->sql_now ;
+        if ( $obj->has_column('created_at') && !$obj->created_at ) {
+            $obj->created_at( $now );
+            $orig->created_at( $now );
+        }
 
+        if ( $obj->has_column('updated_at') ) {
+            $obj->updated_at( $now );
+            $orig->updated_at( $now );
+        }
+
+        my $default = $obj->default_values;
+        for my $key(keys %{$default}) {
+            unless (defined $obj->$key()) {
+                $obj->$key( $default->{$key} );
+                $orig->$key( $default->{$key} );
+            }
+        }
+    },
+);
+__PACKAGE__->add_trigger(
+    pre_update => sub {
+        my ( $obj, $orig ) = @_;
+        if ( $obj->has_column('updated_at') ) {
+            my $now = Wlog::DateTime->sql_now ;
+            $obj->updated_at( $now );
+            $orig->updated_at( $now );
+        }
+    },
+
+);
 
 sub default_values { +{}; }
 

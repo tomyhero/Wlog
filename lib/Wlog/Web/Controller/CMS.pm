@@ -2,10 +2,7 @@ package Wlog::Web::Controller::CMS;
 use Polocky::Class;
 BEGIN { extends 'Polocky::WAF::CatalystLike::Controller' };
 
-sub auto : Private {
-    my ( $self, $c ) = @_;
+sub index : Path : Args(0) {
 
-
-    1;
 }
 __POLOCKY__;

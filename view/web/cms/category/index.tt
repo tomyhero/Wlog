@@ -1,13 +1,13 @@
 [% INCLUDE header.inc mode='cms' %]
 <div id="main">
 
-<p>CMS &gt; カテゴリ管理</p>
+<p class="pankuzu"><a href="/cms/">CMS</a> &gt; <span class="current">カテゴリ管理</span></p>
 
 <a href="/cms/category/add/">カテゴリ追加</a>
-<table>
+<table class="listing">
 <thead>
 <tr>
-    <th>キー</th>
+    <th>パス</th>
     <th>表記名</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>

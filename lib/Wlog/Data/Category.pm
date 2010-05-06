@@ -18,6 +18,15 @@ __PACKAGE__->setup_alias({
         name => 'category_name',
         });
 
+__PACKAGE__->add_trigger(
+    post_insert => sub {
+        my ( $obj ) = @_;
+        my $category_body_obj = Wlog::Data::CategoryBody->new();
+        $category_body_obj->category_id( $obj->id );
+        $category_body_obj->body( "TOP PAGE" );
+        $category_body_obj->save(); 
+    }
+);
 sub body_obj {
     my $self = shift;
     my $obj = Wlog::Data::CategoryBody->lookup( $self->id ); 

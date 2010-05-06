@@ -1,11 +1,11 @@
 [% INCLUDE header.inc mode='cms' %]
 <div id="main">
 
-<p class="pankuzu"><a href="/cms/">CMS</a> &gt; <a href="/cms/category/">カテゴリ管理</a> &gt; <span class="current">[% entry_obj.name | html %]編集</span></p>
+<p class="pankuzu"><a href="/cms/">CMS</a> &gt; <a href="/cms/category/">カテゴリ管理</a> &gt; <span class="current">追加</span></p>
 
 [% INCLUDE fvl.inc %]
 
-<form method="post" aciton="/cms/category/[% entry_obj.id %]/edit/">
+<form method="post" aciton="/cms/category/add/">
 [% INCLUDE 'cms/category/form.inc' %]
 </form>
 
