@@ -209,14 +209,19 @@ display:inline;
 padding:5px 0 4px 5px;
 }
 ul#information-category li.title {
-background:url("/image/icon/category.gif") no-repeat scroll 0 -72px transparent;
+background:url("/image/icon/page-part.gif") no-repeat scroll 0 -72px transparent;
 padding-left:18px;
 }
 
 ul#information-tags li.title {
 padding-left:18px;
-background:url(/image/icon/tags.gif) no-repeat 0 -98px;
+background:url(/image/icon/page-part.gif) no-repeat 0 -98px;
 }
+ul#information-page_edit li.title {
+background:url("/image/icon/page-part.gif") no-repeat scroll 0 0 transparent;
+padding-left:18px;
+}
+
 div.information-box ul li a {
     color : #ccc;
 }

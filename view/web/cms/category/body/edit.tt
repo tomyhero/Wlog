@@ -1,0 +1,27 @@
+[% INCLUDE header.inc mode='cms' %]
+<div id="main">
+
+<p class="pankuzu"><a href="/cms/">CMS</a> &gt; <a href="/cms/category/">カテゴリ管理</a> &gt; <span class="current">[% entry_obj.category_obj.name | html %] トップ編集</span></p>
+
+[% INCLUDE fvl.inc %]
+
+<form method="post" aciton="/cms/category/body/[% entry_obj.id %]/edit/">
+<table class="form">
+    <tr>
+    <td><textarea name="body" rows="50" cols="100"></textarea></td>
+    </tr>
+    <tr>
+    <td><input type="submit" value="更新" /></td>
+    </tr>
+</table>
+</form>
+
+<div class="fixed"></div>
+</div>
+
+<div id="sidebar">
+
+<div class="fixed"></div>
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

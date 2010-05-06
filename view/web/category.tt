@@ -5,6 +5,14 @@
 <h2>[% category_obj.name | html %]</h2>
 <p class="updated_at">最終更新日 : [% category_obj.updated_at %]</p>
 [% category_obj.article %]
+
+
+<div class="information-box">
+    <ul id="information-page_edit">
+        <li class="title"><a href="/cms/category/body/[% category_obj.id %]/edit/">このページの編集</a></li>
+    </ul>
+</div>
+
 <div class="fixed"></div>
 </div>
 </div>

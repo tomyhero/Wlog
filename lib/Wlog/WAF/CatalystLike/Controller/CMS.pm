@@ -28,8 +28,12 @@ sub do_edit : Private {
 
     $entry_obj->update_from_v( $v );
     $entry_obj->save();
-    $c->redirect('/'. $self->path_part . '/?' . $self->path_part .'_id=' . $entry_obj->id );
+    $c->forward('after_edit');
+}
 
+sub after_edit : Private {
+    my ($self, $c ) = @_;
+    $c->redirect('/'. $self->path_part . '/' );
 }
 
 sub add : Local {

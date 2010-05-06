@@ -19,7 +19,7 @@
     <td>[% category_obj.key %]</td>
     <td>[% category_obj.name | html %]</td>
     <td><a href="/cms/category/[% category_obj.id %]/edit/">編集</a></td>
-    <td><a href="/cms/category/[% category_obj.id %]/body/">トップ編集</a></td>
+    <td><a href="/cms/category/body/[% category_obj.id %]/edit/">トップ編集</a></td>
     <td><a href="/cms/sidebar/view?category_id=[% category_obj.id %]">サイドメニュー設定</a></td>
 </tr>
 [% END %]
