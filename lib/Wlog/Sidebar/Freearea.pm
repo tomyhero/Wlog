@@ -9,7 +9,7 @@ has '+title' => (
     default => 'フリーエリア',
 );
 
-has 'html' => (
+has 'html_field' => (
     is => 'rw',
 );
 
@@ -53,9 +53,9 @@ has 'labels' => (
     }
 );
 
-sub disp {
+sub disp_html {
     my $self = shift;
-    return $self->html;
+    return $self->html_field;
 }
 
 __POLOCKY__;

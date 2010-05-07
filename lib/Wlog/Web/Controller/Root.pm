@@ -55,16 +55,6 @@ sub preapre_category : Private {
     my $category_obj = Wlog::Data::Category->single( { category_key => $key } )  or $c->detach('/error');
     $c->stash->{category_obj} = $category_obj;
     $c->stash->{article} = $category_obj->article ;
-
-    my @article_objs = Wlog::Data::Article->search( 
-        { category_id => $category_obj->id },
-        {
-            sort => 'updated_at',
-            direction => 'descend',
-            limit => 10,
-        }
-    );
-    $c->stash->{article_objs} = \@article_objs;
 }
 
 sub article :  LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)/(.+)') {
@@ -73,6 +63,7 @@ sub article :  LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)/(.+)') {
     my $name =$c->req->captures->[1];
     my $article_obj = Wlog::Data::Article->single( { article_name => $name } );
     $c->stash->{article_obj} = $article_obj;
+    
 }
 
 sub error : Private {

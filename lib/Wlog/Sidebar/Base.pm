@@ -3,6 +3,10 @@ use Polocky::Class;
 use Acme::PSON qw(obj2pson);
 
 
+has 'name_field' => (
+    is => 'rw',
+);
+
 has 'name' => (
     is => 'rw',
     default => sub {
@@ -47,6 +51,14 @@ sub check {
     my $result = $self->fvl->check( $data ,$self->profile ) ;
     $self->fvl_result( $result );
     return !$result->has_error;
+}
+sub ready {
+    my $self = shift;
+    my $data = shift;
+    for my $key (keys %$data) {
+        my $method =  $key . '_field';
+        $self->$method( $data->{$key} );
+    }
 }
 
 sub get {

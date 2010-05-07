@@ -23,21 +23,19 @@
 [% END %]
 
 <div id="sidebar">
-
+[% FOREACH sidebar_obj IN category_obj.sidebar_objs %]
+[% plugin_obj = sidebar_obj.plugin_obj( category_obj ) %]
 <div class="side-box">
 <div class="box-inner">
-<div class="title"><h2>Recent</h2></div>
+<div class="title"><h2>[% plugin_obj.name_field | html %]</h2></div>
 <div class="body">
 <div class="inner">
-<ul>
-[% FOREACH obj IN article_objs %]
-    <li><a href="/[% obj.category_obj.key %]/[% obj.name | uri %]">[% obj.name | html %]</a></li>
-[% END %]
-</ul>
+[% plugin_obj.disp_html %]
 </div><!-- /inner -->
 </div><!-- /.body -->
 </div><!-- /.box-inner -->
 </div><!-- /side-box -->
+[% END %]
 </div>
 
 <div class="fixed"></div>

@@ -4,6 +4,8 @@ use warnings;
 use base qw(Wlog::Data::BaseObject );
 use Wlog::ObjectDriver;
 use Wlog::Data::CategoryBody;
+use Wlog::Data::Sidebar;
+use Wlog::Sidebar;
 
 __PACKAGE__->install_properties({
         columns     => [ qw/category_id category_key category_name sort created_at updated_at/ ],
@@ -42,6 +44,12 @@ sub article {
     else {
         return '';
     }
+}
+
+sub sidebar_objs {
+    my $self = shift;
+    my @sidebar_objs = Wlog::Data::Sidebar->search( { category_id => $self->id } , { sort => 'sort' , direction => 'descend' } );
+    return \@sidebar_objs;
 }
 
 1;

@@ -6,6 +6,11 @@ fixes:
 lang : ja
 setting :
     sidebar :
+        limit :
+            rule :
+                - Number#range :
+                    min : 0
+                    max : 20
         html :
             rule :
                 - String#length :

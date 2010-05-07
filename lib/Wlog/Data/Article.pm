@@ -7,6 +7,7 @@ use Wlog::Data::ArticleBody;
 use Wlog::Data::ArticleTag;
 use Wlog::Data::Tag;
 use Array::Diff;
+use URI::Escape;
 
 
 __PACKAGE__->install_properties({
@@ -76,6 +77,16 @@ sub tag_update {
         }
     }
 
+}
+
+sub article_url {
+    my $self = shift;
+    
+    my @path = (
+        $self->category_obj->key,
+        URI::Escape::uri_escape_utf8( $self->name )
+    );
+    return '/' . join('/',@path ) ;
 }
 
 1;
