@@ -15,7 +15,7 @@
 <div class="article">
 <h2>「[% category_obj.key %]/[% c.req.captures.1 | html %]」 NOT FOUND</h2>
 
-<a href="/cms/category/[% category_obj.id %]/article/add/">「[% category_obj.key %]/[% c.req.captures.1 | html %]」を作成する</a>
+<a href="/cms/category/[% category_obj.id %]/article/add/?article_name=[% c.req.captures.1 | uri %]">「[% category_obj.key %]/[% c.req.captures.1 | html %]」を作成する</a>
 
 <div class="fixed"></div>
 </div>

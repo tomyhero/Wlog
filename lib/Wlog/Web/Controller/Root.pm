@@ -76,7 +76,9 @@ sub article :  LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)/(.+)') {
 }
 
 sub error : Private {
-
+    my ( $self, $c ) = @_;
+    $c->res->status(500);    
+    $c->res->body('ERROR');
 }
 
 sub end  :ActionClass('RenderView') {}

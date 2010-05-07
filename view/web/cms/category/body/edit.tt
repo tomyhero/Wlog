@@ -8,7 +8,7 @@
 <form method="post" aciton="/cms/category/body/[% entry_obj.id %]/edit/">
 <table class="form">
     <tr>
-    <td><textarea name="body" rows="50" cols="100"></textarea></td>
+    <td><textarea name="body" rows="20" cols="100"></textarea></td>
     </tr>
     <tr>
     <td><input type="submit" value="更新" /></td>

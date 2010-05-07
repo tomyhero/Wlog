@@ -6,6 +6,11 @@ fixes:
 lang : ja
 setting :
     strict :
+        article_name :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 20
         publish_blog :
             rule :
                 - Number#range :

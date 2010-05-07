@@ -24,14 +24,14 @@
                     ],
                     'middlewares' => [
                     {
+                        'module' => 'Plack::Middleware::StackTrace'
+                    },
+                    {
                         'module' => 'Plack::Middleware::Static',
                         opts => {
                             path => qr{^/(image|js|css|static)/},
                             root => '__path_to(htdocs)__'
                         },
-                    },
-                    {
-                        'module' => 'Plack::Middleware::StackTrace'
                     },
                     {
                         'module' => '+Wlog::WAF::Middleware::AuthBase',
