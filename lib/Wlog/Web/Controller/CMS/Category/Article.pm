@@ -24,6 +24,8 @@ BEGIN { extends 'Wlog::WAF::CatalystLike::Controller::CMS' };
 sub endpoint :Chained('/cms/category/endpoint_category') :PathPart('article') :CaptureArgs(1) {
     my ($self, $c, $id ) = @_;
     my $entry_obj = $self->entry_obj->lookup( $id ) or $c->detach('/error');
+    my $category_obj = $c->stash->{category_obj};
+    $c->detach('/error') if $entry_obj->category_id != $category_obj->id ;
     $c->stash->{entry_obj} = $entry_obj;
     return 1;
 }

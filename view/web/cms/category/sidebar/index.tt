@@ -1,0 +1,53 @@
+[% INCLUDE header.inc mode='cms' %]
+<div id="main">
+
+<p class="pankuzu"><a href="/cms/">CMS</a> &gt; カテゴリ:[% category_obj.name | html %] &gt; <span class="current">サイドメニュー</span>  </p>
+
+<table class="listing">
+<thead>
+<tr>
+    <td>表記名</td>
+    <td>タイプ</td>
+    <td>&nbsp;</td>
+</tr>
+</thead>
+[% FOR sidebar_obj IN sidebar_objs %]
+[% pson_data = sidebar_obj.pson_data %]
+<tr>
+    <td>[% pson_data.name | html %]</td>
+    <td>[% sidebar_obj.plugin %]</td>
+    <td>
+    <a href="[% c.req.uri_build([ 'cms','category',category_obj.id,'sidebar', sidebar_obj.id , 'edit' ] )  %]">編集</a>
+    <a href="[% c.req.uri_build([ 'cms','category',category_obj.id,'sidebar', sidebar_obj.id , 'delete' ] )  %]">削除</a>
+    </td>
+</tr>
+[% END %]
+</table>
+
+
+<table class="listing">
+<thead>
+<tr>
+    <td>タイプ</td>
+    <td>説明</td>
+    <td>&nbsp;</td>
+</tr>
+</thead>
+[% FOR plugin IN sidebar.plugins %]
+<tr>
+    <td>[% plugin.title%]</td>
+    <td>[% plugin.description %]</td>
+    <td><a href="[% c.req.uri_build([ 'cms','category',category_obj.id,'sidebar','add' ] , { sidebar_plugin = plugin.name } ) %]">追加</a></td>
+</tr>
+[% END %]
+</table>
+
+<div class="fixed"></div>
+</div>
+
+<div id="sidebar">
+
+<div class="fixed"></div>
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

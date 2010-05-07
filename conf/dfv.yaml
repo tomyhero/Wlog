@@ -5,7 +5,23 @@ fixes:
     - Fix=+Wlog::FVL::Fix
 lang : ja
 setting :
+    sidebar :
+        html :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 2000
+        name :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 10
     strict :
+        sidebar_plugin :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 10
         article_name :
             rule :
                 - String#length :

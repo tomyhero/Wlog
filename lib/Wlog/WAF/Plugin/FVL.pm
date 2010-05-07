@@ -7,7 +7,7 @@ use FormValidator::LazyWay;
 use FormValidator::LazyWay::Result;
 use YAML::Syck;
 
-has '_dfv' => ( is => 'rw');
+has '_fvl' => ( is => 'rw');
 
 before 'SETUP' => sub  {
     my $c =  shift;
@@ -17,7 +17,7 @@ before 'SETUP' => sub  {
     $args{config} = YAML::Syck::LoadFile(  $config->{yaml_file} );
     $args{result_class} = $config->{result_class} if  $config->{result_class};
     my $dfv = FormValidator::LazyWay->new( %args ) ;
-    $c->_dfv( $dfv );
+    $c->_fvl( $dfv );
 
     1;
 };
@@ -25,7 +25,7 @@ before 'SETUP' => sub  {
 sub form {
     my $c = shift;
     my $profile = shift;
-    my $form = $c->_dfv->check( $c->req->parameters->as_hashref_mixed , $profile );
+    my $form = $c->_fvl->check( $c->req->parameters->as_hashref_mixed , $profile );
     $c->stash->{form} = $form;
     $c->stash->{v}    = $form->valid();
     return $form;
@@ -33,7 +33,7 @@ sub form {
 
 sub create_form { 
     my $c = shift;
-    my $form = $c->_dfv->result_class->new({}) ;
+    my $form = $c->_fvl->result_class->new({}) ;
     $c->stash->{form} = $form;
 }
 

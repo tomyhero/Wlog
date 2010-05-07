@@ -1,0 +1,39 @@
+[% INCLUDE header.inc mode='cms' %]
+<div id="main">
+
+<p class="pankuzu"><a href="/cms/">CMS</a> &gt; カテゴリ:[% category_obj.name | html %] &gt; サイドバー &gt; <span class="current">[% sidebar_plugin.title %]追加</span>  </p>
+
+[% INCLUDE fvl.inc %]
+
+<form method="post" aciton="/cms/category/[% category_obj.id %]/article/add/">
+<input type="hidden" name="plugin_name" value="[% v.plugin_name %]" />
+<table class="form">
+[% FOREACH field IN sidebar_plugin.fields %]
+<tr>
+    <th>[% sidebar_plugin.labels.${field.name} %]</td>
+    [% IF field.type == 'textarea' %]
+    <td><textarea name="[% field.name %]" cols="100" rows="5"></textarea></td>
+    [% ELSE %]
+    <td><input type="text" name="[% field.name %]" size="50" /></td>
+    [% END %]
+</tr>
+[% END %]
+<tr>
+    <th>順番</th>
+    <td><input type="text" name="sort" value="1" /></td>
+</tr>
+<tr>
+    <td colspan="2"><input type="submit" value="追加" /></td>
+</tr>
+</table>
+</form>
+
+<div class="fixed"></div>
+</div>
+
+<div id="sidebar">
+
+<div class="fixed"></div>
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

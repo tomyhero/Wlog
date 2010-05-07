@@ -57,9 +57,8 @@ create table article_tag (
 
 create table sidebar (
     sidebar_id int(10) unsigned NOT NULL auto_increment,
-    article_id int(10) unsigned NOT NULL,
+    category_id int(10) unsigned NOT NULL,
     sidebar_plugin varchar(255) NOT NULL,
-    sidebar_name varchar(255) NOT NULL, 
     sort int(10) unsigned NOT NULL,
     pson TEXT NOT NULL,
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
