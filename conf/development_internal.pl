@@ -7,7 +7,7 @@
                 'screen' => {
                     'stderr' => '1',
                     'class' => 'Log::Dispatch::Screen',
-                    'min_level' => 'debug'
+                    'min_level' => 'debug',
                 }
         },
     },

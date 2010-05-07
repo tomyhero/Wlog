@@ -1,6 +1,7 @@
 package Wlog::Web::Controller::CMS::Category::Article;
 use Polocky::Class;
 use Wlog::DateTime;
+use Storable qw(dclone);
 
 __PACKAGE__->path_part( 'cms/category/article' );
 __PACKAGE__->entry_obj( 'Wlog::Data::Article' );
@@ -41,6 +42,7 @@ sub add : Chained('/cms/category/endpoint') :PathPart('article/add') {
 sub do_add : Private {
     my ( $self, $c ) = @_;
     my $profile = $self->profile_for_edit ;
+    $profile = dclone( $profile );
     push @{$profile->{required}}, 'article_name' ;
     my $form = $c->form( $profile );
     if( $form->has_error ) {
@@ -53,11 +55,12 @@ sub do_add : Private {
         my $data = {};
         if( $v->{publish_blog} ) {
             $data->{on_blog} = 1;
-            $data->{bloged_at} =   Wlog::DateTime->sql_now ;
         }
         else {
             $data->{on_blog} = 0;
         }
+        # XXX
+        $data->{bloged_at} =   Wlog::DateTime->sql_now ;
         $data->{article_name} = $v->{article_name};
         $data->{category_id} = $category_obj->id;
         my $entry_obj = $self->entry_obj->new( %$data );
