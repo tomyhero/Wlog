@@ -36,7 +36,7 @@ sub index : Path : Args(0) {
 sub tag : LocalRegex('tag/(.+)') {
     my ( $self, $c ) = @_;
     my $name = $c->req->captures->[0];
-    my $tag_obj = Wlog::Data::Tag->single({tag_name => $name });
+    my $tag_obj = Wlog::Data::Tag->single({tag_name => $name }) or $c->detach('/error');
     $c->stash->{tag_obj} = $tag_obj;
 
     my @article_tag_objs = Wlog::Data::ArticleTag->search({ tag_id => $tag_obj->id });
@@ -52,7 +52,7 @@ sub category : LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)$') {
 sub preapre_category : Private {
     my ( $self, $c ) = @_;
     my $key = $c->req->captures->[0];
-    my $category_obj = Wlog::Data::Category->single( { category_key => $key } );
+    my $category_obj = Wlog::Data::Category->single( { category_key => $key } )  or $c->detach('/error');
     $c->stash->{category_obj} = $category_obj;
     $c->stash->{article} = $category_obj->article ;
 

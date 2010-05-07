@@ -8,7 +8,7 @@
 
 
 <div class="information-box">
-    <ul id="information-page_edit">
+    <ul class="information-page_edit">
         <li class="title"><a href="/cms/category/body/[% category_obj.id %]/edit/">このページの編集</a></li>
     </ul>
 </div>

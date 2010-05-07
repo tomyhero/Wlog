@@ -1,0 +1,34 @@
+[% INCLUDE header.inc mode='cms' %]
+<div id="main">
+
+<p class="pankuzu"><a href="/cms/">CMS</a> &gt; カテゴリ:[% category_obj.name | html %] &gt; <span class="current">記事 : [% entry_obj.name | html %] 編集</span>  </p>
+
+[% INCLUDE fvl.inc %]
+
+<form method="post" aciton="/cms/category/[% category_obj.id %]/article/[% entry_obj.id %]/edit/">
+<table class="form">
+    <tr>
+        <td colspan="2"><textarea name="body" rows="50" cols="100"></textarea></td>
+    </tr>
+    <tr>
+        <th>タグ</th>
+        <td><input type="text" name="tags" size="80"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="checkbox" name="publish_blog" value="1" /> Blog公開する</td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="更新" /></td>
+    </tr>
+</table>
+</form>
+
+<div class="fixed"></div>
+</div>
+
+<div id="sidebar">
+
+<div class="fixed"></div>
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

@@ -208,16 +208,24 @@ div.information-box ul li {
 display:inline;
 padding:5px 0 4px 5px;
 }
-ul#information-category li.title {
+div.information-box ul li.title {
+font-size:100%;
+font-weight:bold;
+height:20px;
+line-height:15px;
+padding-left:20px;
+}
+
+ul.information-category li.title {
 background:url("/image/icon/page-part.gif") no-repeat scroll 0 -72px transparent;
 padding-left:18px;
 }
 
-ul#information-tags li.title {
+ul.information-tags li.title {
 padding-left:18px;
 background:url(/image/icon/page-part.gif) no-repeat 0 -98px;
 }
-ul#information-page_edit li.title {
+ul.information-page_edit li.title {
 background:url("/image/icon/page-part.gif") no-repeat scroll 0 0 transparent;
 padding-left:18px;
 }

@@ -132,4 +132,13 @@ sub update_from_v {
     1;
 }
 
+sub single_or_create {
+    my ( $class ,$data ) = @_;
+    my $obj = $class->single( $data );
+    unless( $obj ) {
+        $obj = $class->new( %$data );
+        $obj->save;
+    }
+    return $obj;
+}
 1;

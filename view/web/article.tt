@@ -1,6 +1,6 @@
 [% INCLUDE header.inc %]
 <div id="main">
-
+[% IF article_obj %]
 <div class="article">
 <h2>[% article_obj.name | html %]</h2>
 <p class="updated_at">最終更新日 : [% article_obj.updated_at %]</p>
@@ -11,6 +11,16 @@
 <div class="fixed"></div>
 </div>
 </div>
+[% ELSE %]
+<div class="article">
+<h2>「[% category_obj.key %]/[% c.req.captures.1 | html %]」 NOT FOUND</h2>
+
+<a href="/cms/category/[% category_obj.id %]/article/add/">「[% category_obj.key %]/[% c.req.captures.1 | html %]」を作成する</a>
+
+<div class="fixed"></div>
+</div>
+</div>
+[% END %]
 
 <div id="sidebar">
 

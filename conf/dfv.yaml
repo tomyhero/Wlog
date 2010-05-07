@@ -1,9 +1,23 @@
 rules :
     - String
     - Number 
+fixes:
+    - Fix=+Wlog::FVL::Fix
 lang : ja
 setting :
     strict :
+        publish_blog :
+            rule :
+                - Number#range :
+                    min : 0
+                    max : 1
+        tags :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 100
+            fix :
+                - Fix#tags_array
         body :
             rule : 
                 - String#length :

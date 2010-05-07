@@ -20,6 +20,13 @@ sub endpoint :Chained('/') :PathPart('cms/category') :CaptureArgs(1) {
     return 1;
 }
 
+sub endpoint_category :Chained('/') :PathPart('cms/category') :CaptureArgs(1) {
+    my ($self, $c, $id ) = @_;
+    my $entry_obj = $self->entry_obj->lookup( $id ) or $c->detach('/error');
+    $c->stash->{category_obj} = $entry_obj;
+    return 1;
+}
+
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;
     my @category_objs = Wlog::Data::Category->search({},{ sort => 'sort' , direction => 'descend' } );
