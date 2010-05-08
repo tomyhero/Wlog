@@ -1,8 +1,8 @@
 <html>
 <head>
-<link rel="stylesheet" href="/css/core.css" type="text/css" />
-<link rel="stylesheet" href="/css/cms.css" type="text/css" />
-<link rel="stylesheet" href="/static/wiki/css/cpan-like.css" type="text/css" media="all" />
+<link rel="stylesheet" href="[% config.site('css_core_url') %]" type="text/css" />
+<link rel="stylesheet" href="[% config.site('css_cms_url') %]" type="text/css" />
+<link rel="stylesheet" href="[% config.site('css_wiki_url') %]" type="text/css" media="all" />
 <title>Lazy Programmer's Wlog[% IF category_obj %] / [% category_obj.name | html %] [% END %]</title>
 </head>
 <body>

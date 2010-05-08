@@ -7,5 +7,11 @@ sub database {
     return $self->_get( 'database' );
 }
 
+sub site {
+    my $self = shift;
+    my $section = shift;
+    return $self->_get( 'site' , $section );
+}
+
 1;
 

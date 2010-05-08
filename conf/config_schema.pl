@@ -4,6 +4,9 @@
         'database' => {
             'type' => 'any'
         },
+        'site' => {
+            'type' => 'any'
+        },
 
     }
 }
