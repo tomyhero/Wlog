@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="[% config.site('css_core_url') %]" type="text/css" />
 <link rel="stylesheet" href="[% config.site('css_cms_url') %]" type="text/css" />
 <link rel="stylesheet" href="[% config.site('css_wiki_url') %]" type="text/css" media="all" />
-<title>Lazy Programmer's Wlog[% IF category_obj %] / [% category_obj.name | html %] [% END %]</title>
+<title>[% config.site('title') %][% IF category_obj.id %] / [% category_obj.name | html %] [% END %]</title>
 </head>
 <body>
 <div id="wrap">
 <div id="container">
 <div id="header">
-<h1>Lazy Programmer's Wlog[% IF category_obj %] / [% category_obj.name | html %] [% END %]</h1>
+<h1><a href="/">[% config.site('title') %][% IF category_obj.id %] / [% category_obj.name | html %] [% END %]</a></h1>
 <ul id="navi">
     <li><a href="/">Blog</a></li>
 [% IF mode == 'cms' %]
