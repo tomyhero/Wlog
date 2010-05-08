@@ -31,12 +31,11 @@ sub plugin_obj {
     my $self = shift;
     my $category_obj = shift;
     my $plugin = 'Wlog::Sidebar::' . $self->sidebar_plugin;
-    $plugin->require;
+    $plugin->require or die $@;
     my $obj = $plugin->new( category_obj => $category_obj );
     $obj->ready( $self->pson_data );
     return $obj;
 }
-
 
 
 1;

@@ -56,7 +56,11 @@ has 'labels' => (
 sub disp_html {
     my $self = shift;
     my $category_obj = $self->category_obj;
-    my @article_obj = Wlog::Data::Article->search( { category_id => $category_obj->id } , { sort => 'updated_at' , direction => 'descend' , limit => 5 } );
+
+    my @article_obj 
+        = $category_obj->id 
+        ? Wlog::Data::Article->search( { category_id => $category_obj->id } , { sort => 'updated_at' , direction => 'descend' , limit => 5 } )
+        : Wlog::Data::Article->search( {} , { sort => 'updated_at' , direction => 'descend' , limit => 5 } );
 
     my $html = '<ul>';
     for(@article_obj) {

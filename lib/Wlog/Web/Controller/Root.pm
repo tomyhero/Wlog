@@ -31,6 +31,7 @@ sub index : Path : Args(0) {
             }
             );
     $c->stash->{article_objs} = \@article_objs;
+    $c->stash->{category_obj} = Wlog::Data::Category->new( id => 0 );
 }
 
 sub tag : LocalRegex('tag/(.+)') {
@@ -43,6 +44,7 @@ sub tag : LocalRegex('tag/(.+)') {
     my @article_ids = map { $_->id } @article_tag_objs;
     my $article_objs = Wlog::Data::Article->lookup_multi(\@article_ids );
     $c->stash->{article_objs} = $article_objs;
+    $c->stash->{category_obj} = Wlog::Data::Category->new( id => 0 );
 
 }
 sub category : LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)$') {

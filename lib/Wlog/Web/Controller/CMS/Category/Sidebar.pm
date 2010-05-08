@@ -10,7 +10,7 @@ __PACKAGE__->entry_obj( 'Wlog::Data::Sidebar' );
 
 BEGIN { extends 'Wlog::WAF::CatalystLike::Controller::CMS' };
 
-sub endpoint :Chained('/cms/category/endpoint_category') :PathPart('sidebar') :CaptureArgs(1) {
+sub endpoint :Chained('/cms/category/endpoint_category_or_default') :PathPart('sidebar') :CaptureArgs(1) {
     my ($self, $c, $id ) = @_;
     my $entry_obj = $self->entry_obj->lookup( $id ) or $c->detach('/error');
     my $category_obj = $c->stash->{category_obj};
@@ -19,7 +19,7 @@ sub endpoint :Chained('/cms/category/endpoint_category') :PathPart('sidebar') :C
     return 1;
 }
 
-sub index : Chained('/cms/category/endpoint_category') :PathPart('sidebar') {
+sub index : Chained('/cms/category/endpoint_category_or_default') :PathPart('sidebar') {
     my ( $self, $c ) = @_;
     my $category_obj = $c->stash->{category_obj};
     my $sidebar = Wlog::Sidebar->new( fvl => $c->_fvl , category_obj => $category_obj );
@@ -29,7 +29,7 @@ sub index : Chained('/cms/category/endpoint_category') :PathPart('sidebar') {
     $c->stash->{sidebar_objs} = \@sidebar_objs;
 
 }
-sub add : Chained('/cms/category/endpoint_category') :PathPart('sidebar/add') {
+sub add : Chained('/cms/category/endpoint_category_or_default') :PathPart('sidebar/add') {
     my ( $self, $c ) = @_;
     my $category_obj = $c->stash->{category_obj};
 

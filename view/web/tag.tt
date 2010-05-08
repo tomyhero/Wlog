@@ -16,8 +16,8 @@
 
 <div class="fixed"></div>
 </div>
-<div id="sidebar">
 
-</div>
+[% INCLUDE 'sidebar.inc' %]
+
 <div class="fixed"></div>
 [% INCLUDE footer.inc %]

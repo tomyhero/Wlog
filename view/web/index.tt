@@ -16,36 +16,7 @@
 
 </div>
 
-<div id="sidebar">
-<div class="side-box">
-<div class="box-inner">
-<div class="title"><h2>About</h2></div>
-<div class="body">
-<div class="inner">
-<p>
-help me. help you.
-</p>
-</div><!-- /inner -->
-</div><!-- /.body -->
-</div><!-- /.box-inner -->
-</div><!-- /side-box -->
-
-<div class="side-box">
-<div class="box-inner">
-<div class="title"><h2>Recent</h2></div>
-<div class="body">
-<div class="inner">
-<ul>
-    <li><a href="">ほげほげ</a></li>
-    <li><a href="">ほげほげ</a></li>
-    <li><a href="">ほげほげ</a></li>
-    <li><a href="">ほげほげ</a></li>
-</ul>
-</div><!-- /inner -->
-</div><!-- /.body -->
-</div><!-- /.box-inner -->
-</div><!-- /side-box -->
-</div>
+[% INCLUDE 'sidebar.inc' %]
 
 <div class="fixed"></div>
 [% INCLUDE footer.inc %]
