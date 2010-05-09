@@ -24,7 +24,7 @@
                     ],
                     'middlewares' => [
                     {
-                        'module' => 'Plack::Middleware::StackTrace'
+                        'module' => '+Polocky::WAF::Middleware::StackTrace'
                     },
                     {
                         'module' => 'Plack::Middleware::Static',

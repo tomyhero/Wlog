@@ -1,0 +1,20 @@
+[% INCLUDE header.inc mode='cms' %]
+<div id="main">
+
+<p class="pankuzu"><a href="/cms/">CMS</a> &gt; カテゴリ:[% category_obj.name | html %] &gt; サイドバー &gt; <span class="current">編集</span>  </p>
+
+[% INCLUDE fvl.inc %]
+
+<form method="post" aciton="/cms/category/[% category_obj.id %]/sidebar/[% sidebar_obj.id %]/edit/">
+[% INCLUDE 'cms/category/sidebar/form.inc' %]
+</form>
+
+<div class="fixed"></div>
+</div>
+
+<div id="sidebar">
+
+<div class="fixed"></div>
+</div>
+<div class="fixed"></div>
+[% INCLUDE footer.inc %]

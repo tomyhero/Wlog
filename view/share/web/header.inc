@@ -13,7 +13,8 @@
 <ul id="navi">
     <li><a href="/">Blog</a></li>
 [% IF mode == 'cms' %]
-    <li><a href="/cms/category/">カテゴリ管理</a></li>
+    <li><a href="/cms/category/">カテゴリ設定</a></li>
+    <li><a href="/cms/category/0/sidebar/">デフォルトサイドメニュー設定</a></li>
 [% ELSE %]
     [% FOR obj IN category_objs %]
     <li><a href="/[% obj.key %]/">[% obj.name | html %]</a></li>

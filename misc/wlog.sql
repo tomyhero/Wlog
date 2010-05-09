@@ -7,7 +7,7 @@ create table category(
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (category_id),
     UNIQUE KEY(category_key)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table category_body (
     category_id int(10) unsigned NOT NULL ,
@@ -15,7 +15,7 @@ create table category_body (
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (category_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table article( 
     article_id int(10) unsigned NOT NULL auto_increment,
@@ -27,7 +27,7 @@ create table article(
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (article_id),
     UNIQUE KEY(category_id,article_name)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table article_body ( 
     article_id int(10) unsigned NOT NULL ,
@@ -35,7 +35,7 @@ create table article_body (
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (article_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table tag (
     tag_id int(10) unsigned NOT NULL auto_increment,
@@ -43,7 +43,7 @@ create table tag (
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (tag_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table article_tag (
     id int(10) unsigned NOT NULL auto_increment,
@@ -53,7 +53,7 @@ create table article_tag (
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     UNIQUE KEY(article_id,tag_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table sidebar (
     sidebar_id int(10) unsigned NOT NULL auto_increment,
@@ -64,5 +64,5 @@ create table sidebar (
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (sidebar_id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
