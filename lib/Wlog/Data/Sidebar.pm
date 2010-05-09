@@ -37,5 +37,12 @@ sub plugin_obj {
     return $obj;
 }
 
+sub as_fdat {
+    my $self = shift;
+    my $column_names  = shift || $self->column_names;
+    my %fdat = map { $_ => $self->$_() } @{ $column_names };
+    %fdat = ( %{$self->pson_data} , %fdat );
+    return \%fdat;
+}
 
 1;

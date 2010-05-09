@@ -75,4 +75,51 @@ sub do_add : Private {
 
 }
 
+sub edit : Chained('endpoint') :PathPart('edit') {
+    my ( $self, $c ) = @_;
+    my $category_obj = $c->stash->{category_obj};
+    my $sidebar_obj = $c->stash->{entry_obj};
+
+    $c->stash->{template} = $self->path_part . '/edit.tt';
+    ### XXX 
+
+    my $sidebar = Wlog::Sidebar->new( fvl => $c->_fvl , category_obj => $category_obj );
+    my $sidebar_plugin = $sidebar->get( $sidebar_obj->plugin);
+    $c->stash->{sidebar_plugin} = $sidebar_plugin;
+
+    $c->set_fillform( $sidebar_obj->as_fdat );
+    if( $c->req->method eq 'POST' ) {
+        $c->forward('do_edit');
+    }
+}
+
+sub do_edit : Private {
+    my ( $self, $c) = @_;
+    my $category_obj = $c->stash->{category_obj};
+    my $sidebar_obj  = $c->stash->{entry_obj} ;
+    my $sidebar_plugin = $c->stash->{sidebar_plugin} ;
+
+    unless( $sidebar_plugin->check( $c->req->parameters->as_hashref_mixed ) ) {
+        my $form = $sidebar_plugin->fvl_result;
+        $c->stash->{form} = $form;
+        $c->stash->{v}    = $form->valid();
+        return;
+    }
+
+    # XXX sort!
+    my $sort = 0;
+    if ( $c->req->param('sort') && $c->req->param('sort') =~ /^\d+$/ ){
+        $sort =  $c->req->param('sort');        
+    }
+
+    my $pson = $sidebar_plugin->pson;
+    my %data = ( pson => $pson , sort => $sort );
+    $sidebar_obj->update_from_v( \%data );
+    $sidebar_obj->save();
+    $c->redirect( $c->req->uri_build([ 'cms','category',$category_obj->id,'sidebar' ]) );
+}
+
+
+
+
 __POLOCKY__;
