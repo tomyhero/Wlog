@@ -119,7 +119,11 @@ sub do_edit : Private {
     $c->redirect( $c->req->uri_build([ 'cms','category',$category_obj->id,'sidebar' ]) );
 }
 
-
+sub after_delete : Private {
+    my ($self, $c ) = @_;
+    my $category_obj = $c->stash->{category_obj};
+    $c->redirect( $c->req->uri_build([ 'cms','category',$category_obj->id,'sidebar' ]) );
+}
 
 
 __POLOCKY__;

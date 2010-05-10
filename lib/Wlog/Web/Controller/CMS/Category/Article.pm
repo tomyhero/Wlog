@@ -144,4 +144,9 @@ sub do_edit : Private {
     $c->redirect( $c->req->uri_build([ $category_obj->key , $entry_obj->name ]) );
 
 }
+
+
+
+
+
 __POLOCKY__;

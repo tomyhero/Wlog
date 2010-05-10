@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="[% config.site('css_core_url') %]" type="text/css" />
 <link rel="stylesheet" href="[% config.site('css_cms_url') %]" type="text/css" />
 <link rel="stylesheet" href="[% config.site('css_wiki_url') %]" type="text/css" media="all" />
+<script type="text/javascript" src="/js/wlog.util.js"></script>
 <title>[% config.site('title') %][% IF category_obj.id %] / [% category_obj.name | html %] [% END %]</title>
 </head>
 <body>

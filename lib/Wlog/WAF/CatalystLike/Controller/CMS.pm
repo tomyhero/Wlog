@@ -55,4 +55,23 @@ sub do_add : Private {
     $c->redirect('/'. $self->path_part );
 }
 
+sub delete : Chained('endpoint') :PathPart('delete') {
+    my ( $self, $c ) = @_;
+    if( $c->req->method eq 'POST' ) {
+        $c->forward('do_delete');
+    }
+}
+
+sub do_delete : Private {
+    my ( $self, $c ) = @_;
+    my $entry_obj = $c->stash->{entry_obj};
+    $entry_obj->remove; 
+    $c->forward('after_delete');
+}
+
+sub after_delete : Private {
+    my ($self, $c ) = @_;
+    $c->redirect('/'. $self->path_part . '/' );
+}
+
 __POLOCKY__;

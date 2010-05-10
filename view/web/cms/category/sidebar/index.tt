@@ -18,7 +18,7 @@
     <td>[% sidebar_obj.plugin %]</td>
     <td>
     <a href="[% c.req.uri_build([ 'cms','category',category_obj.id,'sidebar', sidebar_obj.id , 'edit' ] )  %]">編集</a>
-    <a href="[% c.req.uri_build([ 'cms','category',category_obj.id,'sidebar', sidebar_obj.id , 'delete' ] )  %]">削除</a>
+    <a href="javascript:WlogUtil.submit('frm_delete',{},'[% c.req.uri_build([ 'cms','category',category_obj.id,'sidebar', sidebar_obj.id , 'delete' ] )  %]')">削除</a>
     </td>
 </tr>
 [% END %]
@@ -50,4 +50,5 @@
 <div class="fixed"></div>
 </div>
 <div class="fixed"></div>
+<form method="post" id="frm_delete"></form>
 [% INCLUDE footer.inc %]
