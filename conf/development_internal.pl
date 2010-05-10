@@ -27,6 +27,9 @@
                         'module' => '+Polocky::WAF::Middleware::StackTrace'
                     },
                     {
+                        'module' => 'Plack::Middleware::Debug'
+                    },
+                    {
                         'module' => 'Plack::Middleware::Static',
                         opts => {
                             path => qr{^/(image|js|css|static)/},

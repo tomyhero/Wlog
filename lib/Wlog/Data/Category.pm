@@ -8,7 +8,7 @@ use Wlog::Data::Sidebar;
 use Wlog::Sidebar;
 
 __PACKAGE__->install_properties({
-        columns     => [ qw/category_id category_key category_name sort created_at updated_at/ ],
+        columns     => [ qw/category_id category_key category_name sort remote_user created_at updated_at/ ],
         datasource  => 'category',
         primary_key => 'category_id',
         driver      => Wlog::ObjectDriver->driver,
@@ -25,10 +25,12 @@ __PACKAGE__->add_trigger(
         my ( $obj ) = @_;
         my $category_body_obj = Wlog::Data::CategoryBody->new();
         $category_body_obj->category_id( $obj->id );
+        $category_body_obj->remote_user( $obj->remote_user );
         $category_body_obj->body( "TOP PAGE" );
         $category_body_obj->save(); 
     }
 );
+
 sub body_obj {
     my $self = shift;
     my $obj = Wlog::Data::CategoryBody->lookup( $self->id ); 

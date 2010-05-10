@@ -25,4 +25,18 @@ sub after_edit : Private {
     $c->redirect('/' . $category_obj->category_key .'/' );
 }
 
+sub do_edit : Private {
+    my ( $self, $c) = @_;
+    my $entry_obj = $c->stash->{entry_obj};
+    my $form = $c->form( $self->profile_for_edit );
+
+    if( $form->has_error ) {
+        return ;
+    }
+    my $v = $form->valid;
+    $v->{remote_user} = $c->req->user;
+    $entry_obj->update_from_v( $v );
+    $entry_obj->save();
+    $c->forward('after_edit');
+}
 __POLOCKY__;

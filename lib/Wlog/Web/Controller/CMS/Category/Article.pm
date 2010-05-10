@@ -65,13 +65,14 @@ sub do_add : Private {
         $data->{bloged_at} =   Wlog::DateTime->sql_now ;
         $data->{article_name} = $v->{article_name};
         $data->{category_id} = $category_obj->id;
+        $data->{remote_user} = $c->req->user;
         my $entry_obj = $self->entry_obj->new( %$data );
         $entry_obj->save();
         $article_obj = $entry_obj;
     }
 
     {
-        my $article_body_obj = Wlog::Data::ArticleBody->new( article_id => $article_obj->id ,body => $v->{body} );
+        my $article_body_obj = Wlog::Data::ArticleBody->new( article_id => $article_obj->id ,body => $v->{body} , remote_user =>  $c->req->user );
         $article_body_obj->save();
     }
 
@@ -127,11 +128,13 @@ sub do_edit : Private {
             $data->{bloged_at} =   Wlog::DateTime->sql_now ;
         }
 
+        $data->{remote_user} = $c->req->user;
         $entry_obj->update_from_v($data);
         $entry_obj->save();
     }
 
     {
+        $article_body_obj->remote_user( $c->req->user) ;
         $article_body_obj->body( $v->{body} );
         $article_body_obj->save();
     }

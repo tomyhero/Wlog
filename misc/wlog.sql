@@ -3,6 +3,7 @@ create table category(
     category_key varchar(255) NOT NULL,
     category_name varchar(255) NOT NULL,
     sort int(10) unsigned NOT NULL,
+    remote_user varchar(255) NOT NULL, 
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (category_id),
@@ -11,6 +12,7 @@ create table category(
 
 create table category_body (
     category_id int(10) unsigned NOT NULL ,
+    remote_user varchar(255) NOT NULL,
     body TEXT NOT NULL,
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
@@ -23,6 +25,7 @@ create table article(
     article_name  varchar(255) NOT NULL,
     on_blog tinyint unsigned NOT NULL,
     bloged_at datetime NOT NULL default '0000-00-00 00:00:00',
+    remote_user varchar(255) NOT NULL, 
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (article_id),
@@ -31,11 +34,13 @@ create table article(
 
 create table article_body ( 
     article_id int(10) unsigned NOT NULL ,
+    remote_user varchar(255) NOT NULL,
     body TEXT NOT NULL,
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (article_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 create table tag (
     tag_id int(10) unsigned NOT NULL auto_increment,

@@ -11,7 +11,7 @@ use URI::Escape;
 
 
 __PACKAGE__->install_properties({
-        columns     => [ qw/article_id category_id article_name on_blog bloged_at created_at updated_at/ ],
+        columns     => [ qw/article_id category_id article_name on_blog bloged_at remote_user created_at updated_at/ ],
         datasource  => 'article',
         primary_key => 'article_id',
         driver      => Wlog::ObjectDriver->driver,
