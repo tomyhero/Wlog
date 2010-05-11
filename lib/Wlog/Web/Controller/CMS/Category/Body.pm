@@ -35,6 +35,7 @@ sub do_edit : Private {
     }
     my $v = $form->valid;
     $v->{remote_user} = $c->req->user;
+    $v->{version} = $entry_obj->version + 1;
     $entry_obj->update_from_v( $v );
     $entry_obj->save();
     $c->forward('after_edit');

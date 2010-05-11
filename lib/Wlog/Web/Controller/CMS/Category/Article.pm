@@ -135,6 +135,7 @@ sub do_edit : Private {
 
     {
         $article_body_obj->remote_user( $c->req->user) ;
+        $article_body_obj->version( $article_body_obj->version + 1 ) ;
         $article_body_obj->body( $v->{body} );
         $article_body_obj->save();
     }
