@@ -11,6 +11,7 @@ use Wlog::Data::Article;
 use Wlog::Data::ArticleTag;
 use Wlog::Constants qw(:common);
 use Wlog::Pager;
+use XML::RSS;
 
 sub auto : Private {
     my ( $self, $c ) = @_;
@@ -21,8 +22,9 @@ sub auto : Private {
 
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;
+    $c->stash->{template} = 'index.tt';
     my $pager = Wlog::Pager->new;
-    $pager->entries_per_page(2);
+    $pager->entries_per_page(3);
     $pager->current_page( $c->req->param('p') || 1 );
     $pager->uri($c->req->uri);
 
@@ -40,6 +42,31 @@ sub index : Path : Args(0) {
     $c->stash->{article_objs} = \@article_objs;
     $c->stash->{category_obj} = Wlog::Data::Category->new( id => 0 );
 }
+sub feed : Local {
+    my ( $self, $c ) = @_;
+
+    my @article_objs 
+        = Wlog::Data::Article->search(
+            {
+                on_blog => TRUE, 
+            },{
+                sort => 'bloged_at',
+                direction => 'descend',
+                limit => 10,
+            }
+            );
+
+    my $rss = XML::RSS->new(version => '1.0');
+    $rss->channel( title => $c->config->site('title') );
+    for(@article_objs){
+        my $url = $c->req->base;
+        $url =~ s/\/$//;
+        $url .=  $_->article_url;
+        $rss->add_item( title => $_->name  , link => $url , description => $_->article , dc => { date => $_->bloged_at } );
+    }
+    $c->res->content_type('application/rss+xml');
+    $c->res->body( $rss->as_string );
+}
 
 sub tag : LocalRegex('tag/(.+)') {
     my ( $self, $c ) = @_;
@@ -54,7 +81,7 @@ sub tag : LocalRegex('tag/(.+)') {
     $c->stash->{category_obj} = Wlog::Data::Category->new( id => 0 );
 
 }
-sub category : LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)$') {
+sub category : LocalRegex('(^(?!cms|tag|feed)[a-zA-Z0-9_-]+)$') {
     my ( $self, $c ) = @_;
     $c->forward('preapre_category');
 }
@@ -66,7 +93,7 @@ sub preapre_category : Private {
     $c->stash->{article} = $category_obj->article ;
 }
 
-sub article :  LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)/(.+)') {
+sub article :  LocalRegex('(^(?!cms|tag|feed)[a-zA-Z0-9_-]+)/(.+)') {
     my ( $self, $c ) = @_;
     $c->forward('preapre_category');
     my $name =$c->req->captures->[1];
@@ -78,7 +105,7 @@ sub article :  LocalRegex('(^(?!cms|tag)[a-zA-Z0-9_-]+)/(.+)') {
 sub error : Private {
     my ( $self, $c ) = @_;
     $c->res->status(500);    
-    $c->res->body('ERROR');
+    $c->res->body('-_-');
 }
 
 sub end  :ActionClass('RenderView') {}

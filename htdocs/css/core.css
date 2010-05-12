@@ -16,6 +16,10 @@ div#header {
 	background-color: #000;
     color : #fff;
 }
+div#header a {
+    color : #fff;
+    text-decoration: none;
+}
 
 /*
  
