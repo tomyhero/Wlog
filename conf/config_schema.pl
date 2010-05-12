@@ -7,6 +7,9 @@
         'site' => {
             'type' => 'any'
         },
+        'auth' => {
+            'type' => 'any'
+        },
 
     }
 }

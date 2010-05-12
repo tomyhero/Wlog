@@ -39,10 +39,7 @@
                     {
                         'module' => '+Wlog::WAF::Middleware::AuthBase',
                         opts => {
-                            authenticator => sub {
-                                my($username, $password) = @_;
-                                return $username eq 'admin' && $password eq 'admin';
-                            }
+                            authenticator => \&Wlog::Utils::authenticator,
                         },
                     },
                     ]

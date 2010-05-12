@@ -13,5 +13,12 @@ sub site {
     return $self->_get( 'site' , $section );
 }
 
+sub auth {
+    my $self = shift;
+    my $section = shift;
+    return $self->_get( 'auth' , $section );
+}
+
 1;
+
 

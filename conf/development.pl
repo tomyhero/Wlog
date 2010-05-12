@@ -13,5 +13,8 @@
         'css_wiki_url' => '/static/wiki/css/cpan-like.css',
         'title' => "Lazy Programmer's Wlog",
         'copyright' => "Copyright &copy; lazy-programmer.com All Rights Reserved.",
+    },
+    'auth' => {
+        'htpasswd_file' => "__path_to(conf/.htpasswd)__",
     }
 }
