@@ -32,7 +32,7 @@ __PACKAGE__->setup_alias({
         id => 'article_id',
 });
 
-sub default {
+sub default_values {
     +{
         version => 1,
     }

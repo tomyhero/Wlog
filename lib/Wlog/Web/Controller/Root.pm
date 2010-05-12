@@ -10,6 +10,7 @@ use Wlog::Data::Category;
 use Wlog::Data::Article;
 use Wlog::Data::ArticleTag;
 use Wlog::Constants qw(:common);
+use Wlog::Pager;
 
 sub auto : Private {
     my ( $self, $c ) = @_;
@@ -20,6 +21,11 @@ sub auto : Private {
 
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;
+    my $pager = Wlog::Pager->new;
+    $pager->entries_per_page(2);
+    $pager->current_page( $c->req->param('p') || 1 );
+    $pager->uri($c->req->uri);
+
     my @article_objs 
         = Wlog::Data::Article->search(
             {
@@ -27,9 +33,10 @@ sub index : Path : Args(0) {
             },{
                 sort => 'bloged_at',
                 direction => 'descend',
-                limit => 3,
+                pager => $pager
             }
             );
+    $c->stash->{pager} = $pager;
     $c->stash->{article_objs} = \@article_objs;
     $c->stash->{category_obj} = Wlog::Data::Category->new( id => 0 );
 }

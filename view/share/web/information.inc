@@ -6,7 +6,7 @@
     <ul class="information-tags">
         <li class="title">タグ:</li>
         <li class="parent">       
-    [% FOREACH obj IN article_obj.tag_objs %]
+    [% FOREACH obj IN article_obj.article_tag_objs %]
         <a href="/tag/[% obj.name | uri %]/">[% obj.name | html %]</a>&nbsp;
     [% END %]
         </li>

@@ -2,6 +2,7 @@ package Wlog::Pager;
 use strict;
 use warnings;
 use base qw(Data::Page);
+use URI;
 use Data::Page::Navigation;
 use URI::QueryParam ;
 

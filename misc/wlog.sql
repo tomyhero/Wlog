@@ -71,6 +71,7 @@ create table article_body_history (
 create table tag (
     tag_id int(10) unsigned NOT NULL auto_increment,
     tag_name  varchar(255) NOT NULL,
+    per_use int(10) unsigned NOT NULL default 0,  
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (tag_id)
@@ -84,6 +85,17 @@ create table article_tag (
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     UNIQUE KEY(article_id,tag_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table category_tag (
+    id int(10) unsigned NOT NULL auto_increment,
+    category_id int(10) unsigned NOT NULL,
+    tag_id int(10) unsigned NOT NULL,
+    per_use int(10) unsigned NOT NULL default 0,  
+    created_at datetime NOT NULL default '0000-00-00 00:00:00',
+    updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY(category_id,tag_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table sidebar (

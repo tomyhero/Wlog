@@ -34,7 +34,7 @@ __PACKAGE__->setup_alias({
         id => 'category_id',
 });
 
-sub default {
+sub default_values {
     +{
         version => 1,
     }

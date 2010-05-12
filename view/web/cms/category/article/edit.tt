@@ -9,6 +9,12 @@
 [% INCLUDE 'cms/category/article/form.inc' %]
 </form>
 
+<div>
+<form method="post" action="/cms/category/[% category_obj.id %]/article/[% entry_obj.id %]/delete/">
+<input type="submit" value="このページを削除する" />
+</form>
+</div>
+
 <div class="fixed"></div>
 </div>
 

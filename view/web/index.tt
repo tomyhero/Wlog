@@ -3,17 +3,14 @@
 
 [% FOREACH article_obj IN article_objs %]
 <div class="article">
-<h2>[% article_obj.name | html %]</h2>
+<h2><a href="/[% article_obj.category_obj.key %]/[% article_obj.name | uri  %]">[% article_obj.name | html %]</a></h2>
 <p class="updated_at">Bloged at : [% article_obj.bloged_at %]</p>
 [% article_obj.article %]
-
-
 [% INCLUDE information.inc %]
-
-<div class="fixed"></div>
 </div>
 [% END %]
-
+[% paging(pager) %]
+<div class="fixed"></div>
 </div>
 
 [% INCLUDE 'sidebar.inc' %]

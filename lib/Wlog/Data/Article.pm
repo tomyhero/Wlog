@@ -4,7 +4,9 @@ use warnings;
 use base qw(Wlog::Data::BaseObject );
 use Wlog::ObjectDriver;
 use Wlog::Data::ArticleBody;
+use Wlog::Data::ArticleBodyHistory;
 use Wlog::Data::ArticleTag;
+use Wlog::Data::CategoryTag;
 use Wlog::Data::Tag;
 use Array::Diff;
 use URI::Escape;
@@ -28,6 +30,27 @@ __PACKAGE__->has_a({
         cached => 1,
         });
 
+__PACKAGE__->add_trigger(
+    post_remove => sub {
+        my ( $obj ) = @_;
+        my $body_obj = $obj->body_obj;
+        my $article_tag_objs = $obj->article_tag_objs;
+        my $data= $body_obj->as_fdat;
+        my $body = delete $data->{body};
+        $data->{compressed_body} = Wlog::Utils::compress( $body );
+        my $history = Wlog::Data::ArticleBodyHistory->new( %$data ); 
+        $history->save;
+        $body_obj->remove;
+
+        for(@$article_tag_objs){
+            my $tag_obj = $_->tag_obj;
+            $tag_obj->per_use( $_->per_use -1 );
+            $tag_obj->save;
+            $_->remove;
+        }
+    }
+);
+
 sub body_obj {
     my $self = shift;
     my $obj = Wlog::Data::ArticleBody->lookup( $self->id ); 
@@ -45,18 +68,23 @@ sub article {
     }
 }
 
-sub tag_objs {
+sub article_tag_objs {
     my $self = shift;
     my @article_tag_objs = Wlog::Data::ArticleTag->search( { article_id => $self->id } );
     return \@article_tag_objs;
 }
 
+sub category_tag_objs {
+    my $self = shift;
+    my @article_tag_objs = Wlog::Data::CategoryTag->search( { category_id => $self->category_id } );
+    return \@article_tag_objs;
+}
 
 sub tag_update {
     my $self = shift;
     my $tags_array = shift || [];
-    my $tag_objs = $self->tag_objs;  
-    my @olds = map { $_->name } @$tag_objs;
+    my $article_tag_objs = $self->article_tag_objs;  
+    my @olds = map { $_->name } @$article_tag_objs;
     my $diff = Array::Diff->diff( \@olds, $tags_array );
 
     {
@@ -65,6 +93,10 @@ sub tag_update {
             my @tags = Wlog::Data::Tag->search( { tag_name => $deleted } );
             my @tag_ids = map { $_->tag_id } @tags;
             Wlog::Data::ArticleTag->remove({  article_id => $self->id  , tag_id => \@tag_ids}) if scalar @tag_ids ;
+            for(@tags){
+                $_->per_use( $_->per_use - 1 );
+                $_->save;
+            }
         }
     } 
 
@@ -74,6 +106,8 @@ sub tag_update {
             my $tag_obj = Wlog::Data::Tag->single_or_create( { tag_name => $_ } ); 
             my $article_tag_obj = Wlog::Data::ArticleTag->new( article_id => $self->id , tag_id => $tag_obj->id );
             $article_tag_obj->save;
+            $tag_obj->per_use($tag_obj->per_use + 1 );
+            $tag_obj->save;
         }
     }
 

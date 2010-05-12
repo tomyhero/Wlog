@@ -93,8 +93,8 @@ sub edit : Chained('endpoint') :PathPart('edit') {
     my $entry_obj = $c->stash->{entry_obj};
     my $body_obj = Wlog::Data::ArticleBody->lookup($entry_obj->id);
 
-    my $tag_objs = $entry_obj->tag_objs;
-    my @tags = map{ $_->name } @$tag_objs;
+    my $article_tag_objs = $entry_obj->article_tag_objs;
+    my @tags = map{ $_->name } @$article_tag_objs;
     my $tags = join(' ',@tags);
 
     my $fdat = $entry_obj->as_fdat;
@@ -149,6 +149,12 @@ sub do_edit : Private {
 
 }
 
+sub after_delete : Private {
+    my ($self, $c ) = @_;
+    my $entry_obj = $c->stash->{entry_obj};
+    my $category_obj = $entry_obj->category_obj;
+    $c->redirect( $c->req->uri_build([ $category_obj->key]) );
+}
 
 
 

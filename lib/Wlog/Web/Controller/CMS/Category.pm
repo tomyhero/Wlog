@@ -73,4 +73,5 @@ sub do_edit : Private {
     $entry_obj->save();
     $c->forward('after_edit');
 }
+
 __POLOCKY__;
