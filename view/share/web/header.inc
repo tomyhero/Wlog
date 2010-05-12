@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="[% config.site('css_core_url') %]" type="text/css" />
 <link rel="stylesheet" href="[% config.site('css_cms_url') %]" type="text/css" />
 <link rel="stylesheet" href="[% config.site('css_wiki_url') %]" type="text/css" media="all" />
+<link rel="alternate" type="application/rss+xml" title="RSS 1.0" href="/feed/" />
 <script type="text/javascript" src="/js/wlog.util.js"></script>
 [% IF mode == 'cms' %]
 <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
