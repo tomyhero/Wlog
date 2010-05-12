@@ -1,6 +1,6 @@
 <table class="form">
     <tr>
-        <td colspan="2"><textarea name="body" rows="20" cols="100"></textarea></td>
+        <td colspan="2"><textarea name="body" rows="20" cols="100" id="body"></textarea></td>
     </tr>
     <tr>
         <th>タグ</th>

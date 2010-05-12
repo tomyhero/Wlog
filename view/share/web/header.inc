@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="[% config.site('css_cms_url') %]" type="text/css" />
 <link rel="stylesheet" href="[% config.site('css_wiki_url') %]" type="text/css" media="all" />
 <script type="text/javascript" src="/js/wlog.util.js"></script>
+[% IF mode == 'cms' %]
+<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/wlog.api.js"></script>
+[% END %]
 <title>[% config.site('title') %][% IF category_obj.id %] / [% category_obj.name | html %] [% END %]</title>
 </head>
 <body>

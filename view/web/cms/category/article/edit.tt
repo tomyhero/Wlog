@@ -5,9 +5,13 @@
 
 [% INCLUDE fvl.inc %]
 
+<div id="preview-container" style="display:none"></div>
+<div id="body-form-container">
+<a href="javascript:WlogAPI.preview()">Preview</a>
 <form method="post" aciton="/cms/category/[% category_obj.id %]/article/[% entry_obj.id %]/edit/">
 [% INCLUDE 'cms/category/article/form.inc' %]
 </form>
+</div>
 
 <div>
 <form method="post" action="/cms/category/[% category_obj.id %]/article/[% entry_obj.id %]/delete/">

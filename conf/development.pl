@@ -4,7 +4,7 @@
             'mysql_enable_utf8' => '1'
         },
             'password' => undef,
-            'dsn' => 'dbi:mysql:wlog',
+            'dsn' => 'dbi:mysql:wlog_dev',
             'username' => 'root'
     },
     site => {

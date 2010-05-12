@@ -5,16 +5,21 @@
 
 [% INCLUDE fvl.inc %]
 
+
+<div id="preview-container" style="display:none"></div>
+<div id="body-form-container">
+<a href="javascript:WlogAPI.preview()">Preview</a>
 <form method="post" aciton="/cms/category/body/[% entry_obj.id %]/edit/">
 <table class="form">
     <tr>
-    <td><textarea name="body" rows="20" cols="100"></textarea></td>
+    <td><textarea name="body" rows="20" cols="100" id="body"></textarea></td>
     </tr>
     <tr>
     <td><input type="submit" value="更新" /></td>
     </tr>
 </table>
 </form>
+</div>
 
 <div class="fixed"></div>
 </div>

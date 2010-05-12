@@ -6,10 +6,15 @@
 [% INCLUDE fvl.inc %]
 
 <h3>[% v.article_name | html %]</h3>
+
+<div id="preview-container" style="display:none"></div>
+<div id="body-form-container">
+<a href="javascript:WlogAPI.preview()">Preview</a>
 <form method="post" aciton="/cms/category/[% category_obj.id %]/article/add/">
 <input type="hidden" name="article_name" value="[% v.article_name | html %]" />
 [% INCLUDE 'cms/category/article/form.inc' %]
 </form>
+</div>
 
 <div class="fixed"></div>
 </div>
