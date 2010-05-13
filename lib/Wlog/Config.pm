@@ -19,6 +19,12 @@ sub auth {
     return $self->_get( 'auth' , $section );
 }
 
+sub resource {
+    my $self = shift;
+    my $section = shift;
+    return $self->_get( 'resource' , $section );
+}
+
 1;
 
 

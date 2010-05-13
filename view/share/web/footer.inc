@@ -9,5 +9,6 @@
 </div><!-- END OF footer -->
 </div><!-- END OF container -->
 </div><!-- END OF wrap -->
+[% resource.footer_freearea %]
 </body>
 </html>

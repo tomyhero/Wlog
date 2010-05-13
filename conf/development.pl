@@ -16,5 +16,8 @@
     },
     'auth' => {
         'htpasswd_file' => "__path_to(conf/.htpasswd)__",
+    },
+    'resource' => {
+        'footer_freearea_path' => "__path_to(resource/footer_freearea.html)__",
     }
 }

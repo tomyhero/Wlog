@@ -10,6 +10,9 @@
         'auth' => {
             'type' => 'any'
         },
+        'resource' => {
+            'type' => 'any'
+        },
 
     }
 }
