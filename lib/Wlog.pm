@@ -8,20 +8,14 @@ __END__
 
 =head1 NAME
 
-Wlog -
-
-=head1 SYNOPSIS
-
-  use Wlog;
+Wlog - Wiki + Blog 
 
 =head1 DESCRIPTION
 
-Wlog is
+Wiki + Blog Tool.
 
 =head1 AUTHOR
 
-Default Name E<lt>default {at} example.comE<gt>
-
-=head1 SEE ALSO
+Tomohiro Teranishi
 
 =cut
