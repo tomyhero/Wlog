@@ -7,8 +7,8 @@ __PACKAGE__->methods([qw/article/]);
 
 sub article {
     my $self = shift;
-    my $wiki = Wlog::Text->new();
-    $wiki->parse( $self->body || '' ) ;
+    my $wiki = Wlog::Text->instance();
+    $wiki->parse( $self->body || '' , { category_obj => $self->category_obj } ) ;
 }
 
 1;

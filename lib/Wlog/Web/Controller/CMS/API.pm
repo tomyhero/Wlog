@@ -11,7 +11,7 @@ sub preview : Local {
         return;
     }
     my $v = $form->valid;
-    my $article = Wlog::Text->new()->parse( $v->{body} ) ; 
+    my $article = Wlog::Text->instance()->parse( $v->{body} ) ; 
     $c->view()->render($c,'JSON', { article => $article , status => 1 }  );
 }
 
