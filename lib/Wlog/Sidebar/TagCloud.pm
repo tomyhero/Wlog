@@ -1,13 +1,15 @@
-package Wlog::Sidebar::Recent;
+package Wlog::Sidebar::TagCloud;
 use Polocky::Class;
 extends 'Wlog::Sidebar::Base';
-use Wlog::Data::Article;
+use Wlog::Data::Tag;
+use Wlog::Data::CategoryTag;
+use HTML::TagCloud;
 
 has '+description' => (
-    default => '更新順に記事一覧を表示します',
+    default => 'タグクラウドを表示します',
 );
 has '+title' => (
-    default => '更新記事一覧',
+    default => 'タグ',
 );
 
 has 'limit_field' => (
@@ -57,17 +59,24 @@ sub disp_html {
     my $self = shift;
     my $category_obj = $self->category_obj;
 
-    my @article_obj 
-        = $category_obj->id 
-        ? Wlog::Data::Article->search( { category_id => $category_obj->id } , { sort => 'updated_at' , direction => 'descend' , limit => $self->limit_field  } )
-        : Wlog::Data::Article->search( {} , { sort => 'updated_at' , direction => 'descend' , limit => $self->limit_field } );
-
-    my $html = '<ul>';
-    for(@article_obj) {
-        $html .= '<li>' . $_->updated_at . ' <a href="' . $_->article_url . '">' . $_->name . '</a></li>';
+    my @tag_objs = ();
+    if( $category_obj ) {
+        my @category_tag_objs = Wlog::Data::CategoryTag->search( { category_id => $category_obj->id } , { sort => 'per_use', direction => 'descend', limit => $self->limit_field } );
+        for(@category_tag_objs) {
+            push @tag_objs , $_->tag_obj;
+        }
     }
-    $html .='</ul>';
-    return $html;
+    else {
+        @tag_objs = Wlog::Data::Tag->search( {} , { sort => 'per_use', direction => 'descend', limit => $self->limit_field } );
+    }
+    my $html = '';
+
+    my $cloud = HTML::TagCloud->new();
+    for(@tag_objs){
+        $cloud->add( $_->name, $_->url , $_->per_use );
+    }
+
+    return $cloud->html_and_css();
 }
 
 __POLOCKY__;
