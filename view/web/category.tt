@@ -14,6 +14,9 @@
     </ul>
 </div>
 
+<div id="navi-to-new">
+<form action="/cms/category/[% category_obj.id %]/article/add/"><input type="text" name="article_name" /> <input type="submit" value="新ページ作成"></form>
+</div>
 <div class="fixed"></div>
 </div>
 </div>

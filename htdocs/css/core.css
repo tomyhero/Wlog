@@ -246,3 +246,7 @@ div.pager {
     padding-bottom:15px;
     text-align : center;
 }
+div#navi-to-new {
+    padding-right:5px;
+    text-align:right;
+}
