@@ -3,7 +3,7 @@
 <div id="[% IF on_sidebar %]main[% ELSE %]main-wide[% END %]">
 [% IF article_obj %]
 <div class="article">
-<h2>[% article_obj.name | html %]</h2>
+<h2><a href="[% article_obj.article_url %]">[% article_obj.name | html %]</a></h2>
 <p class="updated_at">最終更新日 : [% article_obj.updated_at %]</p>
 [% article_obj.article %]
 

@@ -3,7 +3,7 @@
 <div id="[% IF on_sidebar %]main[% ELSE %]main-wide[% END %]">
 
 <div class="article">
-<h2>[% category_obj.name | html %]</h2>
+<h2><a href="/[% category_obj.key %]/">[% category_obj.name | html %]</a></h2>
 <p class="updated_at">最終更新日 : [% category_obj.updated_at %]</p>
 [% category_obj.article %]
 
