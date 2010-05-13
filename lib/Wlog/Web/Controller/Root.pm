@@ -62,7 +62,7 @@ sub feed : Local {
         my $url = $c->req->base;
         $url =~ s/\/$//;
         $url .=  $_->article_url;
-        $rss->add_item( title => $_->name  , link => $url , description => $_->article , dc => { date => $_->bloged_at } );
+        $rss->add_item( title => $_->name  , link => $url , description => $_->article , dc => { date => $_->bloged_at_obj->strftime("%Y-%m-%dT%T+09:00") } );
     }
     $c->res->content_type('application/rss+xml');
     $c->res->body( $rss->as_string );
@@ -74,8 +74,8 @@ sub tag : LocalRegex('tag/(.+)') {
     my $tag_obj = Wlog::Data::Tag->single({tag_name => $name }) or $c->detach('/error');
     $c->stash->{tag_obj} = $tag_obj;
 
-    my @article_tag_objs = Wlog::Data::ArticleTag->search({ tag_id => $tag_obj->id });
-    my @article_ids = map { $_->id } @article_tag_objs;
+    my @article_tag_objs = Wlog::Data::ArticleTag->search({ tag_id => $tag_obj->id },{limit => 200 });
+    my @article_ids = map { $_->article_id } @article_tag_objs;
     my $article_objs = Wlog::Data::Article->lookup_multi(\@article_ids );
     $c->stash->{article_objs} = $article_objs;
     $c->stash->{category_obj} = Wlog::Data::Category->new( id => 0 );

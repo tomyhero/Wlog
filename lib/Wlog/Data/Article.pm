@@ -10,6 +10,7 @@ use Wlog::Data::CategoryTag;
 use Wlog::Data::Tag;
 use Array::Diff;
 use URI::Escape;
+use Wlog::DateTime;
 
 
 __PACKAGE__->install_properties({
@@ -123,4 +124,8 @@ sub article_url {
     return '/' . join('/',@path ) ;
 }
 
+sub bloged_at_obj {
+    my $self = shift;
+    return Wlog::DateTime->parse('MySQL', $self->bloged_at );
+}
 1;

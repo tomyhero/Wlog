@@ -4,8 +4,6 @@
 <div class="article">
 <h2>[% tag_obj.name | html %]</h2>
 
-
-
 <ul>
 [% FOREACH obj IN article_objs %]
 <li>[% obj.updated_at %] <a href="/[% obj.category_obj.name | uri %]/[% obj.name | uri %]">[% obj.name | html %]</a> ([% obj.category_obj.name %])</li>
