@@ -8,6 +8,6 @@ MANIFEST
 Makefile.old
 nytprof.out
 MANIFEST.bak
-conf/production_*
-resource/production_*
+conf/production*
+resource/production*
 *.sw[po]
