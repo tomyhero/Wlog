@@ -1,5 +1,6 @@
 [% INCLUDE header.inc %]
-<div id="main">
+[% on_sidebar = category_obj.sidebar_objs.size %]
+<div id="[% IF on_sidebar %]main[% ELSE %]main-wide[% END %]">
 [% IF article_obj %]
 <div class="article">
 <h2>[% article_obj.name | html %]</h2>
@@ -21,7 +22,6 @@
 </div>
 </div>
 [% END %]
-
 [% INCLUDE 'sidebar.inc' %]
 
 <div class="fixed"></div>

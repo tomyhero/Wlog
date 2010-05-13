@@ -1,5 +1,5 @@
 [% INCLUDE header.inc mode='cms' %]
-<div id="main">
+<div id="main-wide">
 
 <p class="pankuzu"><a href="/cms/">CMS</a> &gt; カテゴリ:[% category_obj.name | html %] &gt; <span class="current">サイドメニュー</span>  </p>
 
@@ -41,13 +41,6 @@
 </tr>
 [% END %]
 </table>
-
-<div class="fixed"></div>
-</div>
-
-<div id="sidebar">
-
-<div class="fixed"></div>
 </div>
 <div class="fixed"></div>
 <form method="post" id="frm_delete"></form>

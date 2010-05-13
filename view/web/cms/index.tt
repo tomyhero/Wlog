@@ -1,11 +1,6 @@
 [% INCLUDE header.inc mode='cms' %]
-<div id="main">
+<div id="main-wide">
 <p class="pankuzu"><a href="/cms/">CMS</a></p>
-<div class="fixed"></div>
-</div>
-<div id="sidebar">
-
-<div class="fixed"></div>
 </div>
 <div class="fixed"></div>
 [% INCLUDE footer.inc %]

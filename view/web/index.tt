@@ -1,5 +1,6 @@
 [% INCLUDE header.inc %]
-<div id="main">
+[% on_sidebar = category_obj.sidebar_objs.size %]
+<div id="[% IF on_sidebar %]main[% ELSE %]main-wide[% END %]">
 
 [% FOREACH article_obj IN article_objs %]
 <div class="article">

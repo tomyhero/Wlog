@@ -1,3 +1,4 @@
+[% IF on_sidebar %]
 <div id="sidebar">
 [% FOREACH sidebar_obj IN category_obj.sidebar_objs %]
 [% plugin_obj = sidebar_obj.plugin_obj( category_obj ) %]
@@ -13,3 +14,4 @@
 </div><!-- /side-box -->
 [% END %]
 </div>
+[% END %]

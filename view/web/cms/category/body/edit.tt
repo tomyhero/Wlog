@@ -1,5 +1,5 @@
 [% INCLUDE header.inc mode='cms' %]
-<div id="main">
+<div id="main-wide">
 
 <p class="pankuzu"><a href="/cms/">CMS</a> &gt; <a href="/cms/category/">カテゴリ管理</a> &gt; <span class="current">[% entry_obj.category_obj.name | html %] トップ編集</span></p>
 
@@ -20,13 +20,6 @@
 </table>
 </form>
 </div>
-
-<div class="fixed"></div>
-</div>
-
-<div id="sidebar">
-
-<div class="fixed"></div>
 </div>
 <div class="fixed"></div>
 [% INCLUDE footer.inc %]
