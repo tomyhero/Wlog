@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="[% config.site('css_wiki_url') %]" type="text/css" media="all" />
 <link rel="alternate" type="application/rss+xml" title="RSS 1.0" href="/feed/" />
 <script type="text/javascript" src="/js/wlog.util.js"></script>
+<script type="text/javascript" src="/js/prettify.js"></script>
+<link rel="stylesheet" href="/css/prettify.css" type="text/css" media="all" />
+
 [% IF mode == 'cms' %]
 <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="/js/wlog.api.js"></script>
@@ -13,7 +16,7 @@
 <title>[% config.site('title') %][% IF category_obj.id %] / [% category_obj.name | html %] [% END %][% IF article_obj %]/[% article_obj.name | html %] [% END %][% IF tag_obj %] Tag:[% tag_obj.name | html %][% END %]</title>
 [% END %]
 </head>
-<body>
+<body onload="prettyPrint()">
 <div id="wrap">
 <div id="container">
 <div id="header">
