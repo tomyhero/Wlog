@@ -64,8 +64,15 @@ sub feed : Local {
         $url .=  $_->article_url;
         $rss->add_item( title => $_->name  , link => $url , description => $_->article , dc => { date => $_->bloged_at_obj->strftime("%Y-%m-%dT%T+09:00") } );
     }
-    $c->res->content_type('application/rss+xml');
-    $c->res->body( $rss->as_string );
+
+    if( my $xml = $rss->as_string ) {
+        $c->res->code(200);
+        $c->res->content_type('application/rss+xml');
+        $c->res->body( $xml );
+    }
+    else {
+        $c->detach('error');
+    }
 }
 
 sub tag : LocalRegex('tag/(.+)') {
