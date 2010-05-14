@@ -2,6 +2,7 @@ Revision history for Perl extension Wlog
 
 0.02 
     - BUG FIX : no more not found feed.tt error. I hope.
+    - BUG FIX : avoid duplicate id attribute at blog div tag.
 
 0.01    2010-05-13 22:11
     - original version
