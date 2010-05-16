@@ -1,6 +1,7 @@
 Revision history for Perl extension Wlog
 
 0.03  
+    - allow article title length 20 -> 30
 
 0.02  2010-05-16 21:19
     - BUG FIX : no more not found feed.tt error. I hope.
