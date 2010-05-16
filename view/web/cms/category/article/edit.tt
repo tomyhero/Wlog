@@ -11,13 +11,16 @@
 <form method="post" aciton="/cms/category/[% category_obj.id %]/article/[% entry_obj.id %]/edit/">
 [% INCLUDE 'cms/category/article/form.inc' %]
 </form>
-</div>
 
 <div>
 <form method="post" action="/cms/category/[% category_obj.id %]/article/[% entry_obj.id %]/delete/">
 <input type="submit" value="このページを削除する" />
 </form>
 </div>
+
+
+</div>
+
 </div>
 <div class="fixed"></div>
 [% INCLUDE footer.inc %]
