@@ -43,7 +43,7 @@ sub _new_instance {
 
     my $block_plugins   = Text::Livedoor::Wiki::Plugin->block_plugins({
         except  => ['Text::Livedoor::Wiki::Plugin::Block::CopyAndPaste'],
-        addition  => ['Wlog::Text::Block::CopyAndPaste'],
+        addition  => ['Wlog::Text::Block::CopyAndPaste','Wlog::Text::Block::HTML'],
     });
     my $inline_plugins   = Text::Livedoor::Wiki::Plugin->inline_plugins({
         except  => ['Text::Livedoor::Wiki::Plugin::Inline::WikiPage'],
