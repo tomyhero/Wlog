@@ -4,6 +4,8 @@ Revision history for Perl extension Wlog
     - BUG FIX : no more not found feed.tt error. I hope.
     - BUG FIX : avoid duplicate id attribute at blog div tag.
     - prettify.js support.
+    - amazon formatting suppoirt
+    - added not found page
 
 0.01    2010-05-13 22:11
     - original version
