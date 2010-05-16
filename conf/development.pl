@@ -24,7 +24,8 @@
         amazon => {
             endpont => 'http://ecs.amazonaws.jp/onca/xml',
             key => 'your_key',
-            secret => 'your_secret'
+            secret => 'your_secret',
+            tag => 'laz01-22',
         }
     },
 }

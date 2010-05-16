@@ -114,6 +114,11 @@ sub error : Private {
     $c->res->status(500);    
     $c->res->body('-_-');
 }
+sub default : Path {
+    my ( $self, $c ) = @_;
+    $c->res->status(404);    
+    $c->res->body('>_<');
+}
 
 sub end  :ActionClass('RenderView') {}
 

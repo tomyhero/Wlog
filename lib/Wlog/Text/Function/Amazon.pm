@@ -15,9 +15,8 @@ sub prepare_args {
 sub process {
     my ( $class, $inline, $data ) = @_;
     my $asin = $data->{args}{asin};
-    my $uid = $class->uid;
+    my $uid = $class->opts->{name} . '_' .  $class->uid;
     $Text::Livedoor::Wiki::scratchpad->{amazons} = [] unless $Text::Livedoor::Wiki::scratchpad->{amazons};
-
     push @{$Text::Livedoor::Wiki::scratchpad->{amazons}}, { uid => $uid , asin => $asin } ;
     return qq|<div id="$uid"></div>|;
 

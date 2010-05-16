@@ -5,7 +5,7 @@ use LWP::UserAgent;
 use XML::Simple;
 BEGIN { extends 'Polocky::WAF::CatalystLike::Controller' };
 
-sub item : LocalRegex('([a_zA-Z0-9]+)') {
+sub item : LocalRegex('item/([a-zA-Z0-9]+)') {
     my ( $self, $c ) = @_;
     my $config = $c->config->api('amazon');
     my $asin = $c->req->captures->[0];
@@ -16,7 +16,7 @@ sub item : LocalRegex('([a_zA-Z0-9]+)') {
         ResponseGroup   => 'Small,Images',
         IdType => 'ASIN',
         ItemId => $asin,
-        AssociateTag => 'laz01-22',
+        AssociateTag => $config->{tag} || 'laz01-22',
         );
     
     $u->sign(
@@ -28,6 +28,11 @@ sub item : LocalRegex('([a_zA-Z0-9]+)') {
     my $r  = $ua->get($u);
     if ( $r->is_success ) {
         my $data = XMLin( $r->content );
+
+        if($data->{Items}{Request}{Errors}){
+            $c->view()->render($c,'JSON', {  status => 0  }  );
+            return ;
+        }
         my $item = {
             asin => $asin,
             url => $data->{Items}{Item}{DetailPageURL} || '',
