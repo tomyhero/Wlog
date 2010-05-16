@@ -24,6 +24,11 @@ sub resource {
     my $section = shift;
     return $self->_get( 'resource' , $section );
 }
+sub api {
+    my $self = shift;
+    my $section = shift;
+    return $self->_get( 'api' , $section );
+}
 
 1;
 

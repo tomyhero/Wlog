@@ -19,6 +19,19 @@ var WlogAPI = (function(){
                }
             }
            );
+        }),
+        amazon_lookup:(function(id,asin){
+
+           jQuery.getJSON(
+            '/api/amazon/item/' + asin + '/',
+            {},
+            function(json){
+               if(json.status){
+                    $('#' + id ).html('<a href="' +  json.item.url + '"><img src="' + json.item.image + '" border="0" /></a><p><a href="' +  json.item.url + '">' + json.item.title + '</a></p>');
+               }
+            }
+           );
+             
         })
     }
 })();

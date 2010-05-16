@@ -88,7 +88,7 @@ sub tag : LocalRegex('tag/(.+)') {
     $c->stash->{category_obj} = Wlog::Data::Category->new( id => 0 );
 
 }
-sub category : LocalRegex('(^(?!cms|tag|feed)[a-zA-Z0-9_-]+)$') {
+sub category : LocalRegex('(^(?!cms|tag|feed|api)[a-zA-Z0-9_-]+)$') {
     my ( $self, $c ) = @_;
     $c->forward('preapre_category');
 }
@@ -100,7 +100,7 @@ sub preapre_category : Private {
     $c->stash->{article} = $category_obj->article ;
 }
 
-sub article :  LocalRegex('(^(?!cms|tag|feed)[a-zA-Z0-9_-]+)/(.+)') {
+sub article :  LocalRegex('(^(?!cms|tag|feed|api)[a-zA-Z0-9_-]+)/(.+)') {
     my ( $self, $c ) = @_;
     $c->forward('preapre_category');
     my $name =$c->req->captures->[1];

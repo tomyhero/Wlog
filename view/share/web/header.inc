@@ -7,10 +7,10 @@
 <script type="text/javascript" src="/js/wlog.util.js"></script>
 <script type="text/javascript" src="/js/prettify.js"></script>
 <link rel="stylesheet" href="/css/prettify.css" type="text/css" media="all" />
-
-[% IF mode == 'cms' %]
 <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="/js/wlog.api.js"></script>
+
+[% IF mode == 'cms' %]
 <title>[% config.site('title') %] CMS</title>
 [% ELSE %]
 <title>[% config.site('title') %][% IF category_obj.id %] / [% category_obj.name | html %] [% END %][% IF article_obj %]/[% article_obj.name | html %] [% END %][% IF tag_obj %] Tag:[% tag_obj.name | html %][% END %]</title>

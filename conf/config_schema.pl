@@ -13,6 +13,9 @@
         'resource' => {
             'type' => 'any'
         },
+        'api' => {
+            'type' => 'any'
+        },
 
     }
 }

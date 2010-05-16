@@ -9,5 +9,6 @@ Makefile.old
 nytprof.out
 MANIFEST.bak
 conf/production*
+conf/*local.pl
 resource/production*
 *.sw[po]

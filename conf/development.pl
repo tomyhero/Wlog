@@ -19,5 +19,12 @@
     },
     'resource' => {
         'footer_freearea_path' => "__path_to(resource/footer_freearea.html)__",
-    }
+    },
+    'api' => {
+        amazon => {
+            endpont => 'http://ecs.amazonaws.jp/onca/xml',
+            key => 'your_key',
+            secret => 'your_secret'
+        }
+    },
 }
