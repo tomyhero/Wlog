@@ -3,7 +3,6 @@ var WlogUtil = (function(){
         submit:(function(id,data,action){
             if(data != undefined ) {
                 for( var field in data) {
-                    alert(field);
                     document.getElementById(field).value = data[field];
                 }
             }
